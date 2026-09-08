@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     default: 'K9 Kleanup | Pet Waste Removal in Central Minnesota',
     template: '%s | K9 Kleanup',
   },
+  icons: { icon: '/brand-icon.png', apple: '/brand-icon.png' },
   description: 'Veteran-owned dog waste removal serving St. Cloud, Sartell, Sauk Rapids, St. Joseph, and nearby Central Minnesota communities.',
 };
 

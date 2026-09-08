@@ -33,48 +33,48 @@
 }
 
 :root {
-  --background: #f8f7f1;
-  --foreground: #183c32;
+  --background: #faf8f3;
+  --foreground: #121110;
   --card: #ffffff;
-  --card-foreground: #17251f;
+  --card-foreground: #121110;
   --popover: #ffffff;
-  --popover-foreground: #17251f;
-  --primary: #1b4b3b;
+  --popover-foreground: #121110;
+  --primary: #121110;
   --primary-foreground: #ffffff;
-  --secondary: #e7f0eb;
-  --secondary-foreground: #123d31;
+  --secondary: #fff0c7;
+  --secondary-foreground: #121110;
   --muted: #f2eee5;
-  --muted-foreground: #58675e;
-  --accent: #f4b928;
-  --accent-foreground: #18251f;
+  --muted-foreground: #625e57;
+  --accent: #FFB600;
+  --accent-foreground: #121110;
   --destructive: #b7332e;
-  --border: #dfe5df;
-  --input: #ccd6cf;
-  --ring: #174e3d;
+  --border: #e0dcd3;
+  --input: #cbc5b8;
+  --ring: #9b6900;
   --radius: .85rem;
   --font-body: "Aptos", "Segoe UI", Arial, sans-serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  --font-display: "Nunito", "Segoe UI", Arial, sans-serif;
 }
 
 .dark {
-  --background: #0b1d18;
+  --background: #121110;
   --foreground: #f8f5ed;
-  --card: #122a22;
+  --card: #24221f;
   --card-foreground: #f8f5ed;
-  --popover: #122a22;
+  --popover: #24221f;
   --popover-foreground: #f8f5ed;
-  --primary: #f4b928;
-  --primary-foreground: #15251e;
-  --secondary: #1d3b31;
+  --primary: #FFB600;
+  --primary-foreground: #121110;
+  --secondary: #343029;
   --secondary-foreground: #ffffff;
-  --muted: #1a332b;
-  --muted-foreground: #b8c3bd;
-  --accent: #f4b928;
-  --accent-foreground: #15251e;
+  --muted: #24221f;
+  --muted-foreground: #cbc5b8;
+  --accent: #FFB600;
+  --accent-foreground: #121110;
   --destructive: #e07168;
-  --border: #2f493f;
-  --input: #3a554b;
-  --ring: #f4b928;
+  --border: #454038;
+  --input: #514a40;
+  --ring: #FFB600;
 }
 
 @layer base {
@@ -87,7 +87,7 @@
 @layer components {
   .site-container { @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8; }
   .eyebrow { @apply mb-4 text-sm font-extrabold uppercase tracking-[.18em] text-primary; }
-  .section-title { @apply font-heading text-[clamp(2.5rem,4.7vw,4.4rem)] font-normal leading-[1.06] tracking-[-.045em] text-foreground; }
+  .section-title { @apply font-heading text-[clamp(2.5rem,4.7vw,4.4rem)] font-black leading-[1.06] tracking-[-.045em] text-foreground; }
   .section-space { @apply py-20 md:py-28; }
   .body-copy { @apply text-lg leading-relaxed text-muted-foreground; }
   .text-link { @apply inline-flex items-center gap-3 border-b border-current pb-1 text-base font-semibold; }
@@ -98,4 +98,10 @@
 a:focus-visible { outline: 3px solid #bf7919; outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-::selection { background: #f4b928; color: #17251f; }
+::selection { background: #FFB600; color: #121110; }
+
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 200 900; font-display: swap; src: url('/fonts/nunito.woff2') format('woff2'); }
+.font-heading { font-weight: 850; }
+.brand-button { background: #FFB600; color: #121110; font-weight: 800; border-radius: .65rem; }
+.brand-button:hover { background: #efaa00; }
+.brand-rule { border-top: 4px solid #FFB600; }

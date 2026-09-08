@@ -16,6 +16,17 @@ Service facts and company background were checked against https://k9kleanup.co a
 
 ## Photography
 
+## Brand continuity
+
+The original detective-dog logo and browser icon are reused unchanged from the client's existing site. The palette restores the original Elementor brand tokens: gold `#FFB600`, near-black `#121110`, white, and warm supporting neutrals. Nunito headings are locally hosted from the original site's font asset. The original tagline, "Your yard, crime scene clean," is retained. Real lifestyle photographs remain; no generated scene photos are restored.
+
+- Logo: https://k9kleanup.co/wp-content/uploads/2025/06/K9_Kleanup_Logo-e1751521391422.png
+- Icon: https://k9kleanup.co/wp-content/uploads/2025/06/cropped-K9_Kleanup_Logo-192x192.png
+- Brand tokens: https://k9kleanup.co/wp-content/uploads/elementor/css/post-2887.css
+- Font: https://k9kleanup.co/wp-content/uploads/elementor/google-fonts/fonts/nunito-xrxv3i6li01bkofineab.woff2
+
+### Lifestyle photo credits
+
 Original real stock photos, downloaded from Pexels under https://www.pexels.com/license/ on September 8, 2026. Not representations of K9 Kleanup staff, customers, or properties. Attribution also appears on `/photo-credits`.
 
 - `public/images/yard-dog.jpg`: Barnabas Davoti, https://www.pexels.com/photo/a-golden-retriever-dog-on-green-grass-field-11702791/
