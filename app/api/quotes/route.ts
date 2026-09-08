@@ -13,6 +13,10 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
 
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    return Response.json({ error: 'Invalid request' }, { status: 400 });
+  }
+
   const data = {
     name: clean(input.name, 120),
     zip: clean(input.zip, 12),
@@ -23,7 +27,7 @@ export async function POST(request: Request) {
     notes: clean(input.notes, 1200),
   };
 
-  if (!data.name || !data.zip || !data.email.includes('@') || !data.phone || !data.dogs || !data.frequency) {
+  if (!data.name || !/^\d{5}(-\d{4})?$/.test(data.zip) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || data.phone.replace(/\D/g, '').length < 10 || !['1', '2', '3', '4+', 'shared'].includes(data.dogs) || !['weekly', 'biweekly', 'monthly', 'onetime', 'commercial', 'unsure'].includes(data.frequency)) {
     return Response.json({ error: 'Please complete all required fields.' }, { status: 400 });
   }
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: 'K9 Kleanup | Pet Waste Removal in Central Minnesota',
     template: '%s | K9 Kleanup',
   },
-  description: 'Veteran-owned dog waste removal serving St. Cloud, Sartell, Sauk Rapids, St. Joseph, Waite Park, and nearby Central Minnesota communities.',
+  description: 'Veteran-owned dog waste removal serving St. Cloud, Sartell, Sauk Rapids, St. Joseph, and nearby Central Minnesota communities.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
