@@ -98,6 +98,13 @@
 a:focus-visible { outline: 3px solid #bf7919; outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+section[id] { scroll-margin-top: 1.5rem; }
+@media (max-width: 380px) {
+  header .brand-button { padding-inline: .6rem; }
+  header [aria-label="K9 Kleanup home"] { gap: .5rem; }
+  header [aria-label="K9 Kleanup home"] img { height: 3.25rem; }
+}
+
 ::selection { background: #FFB600; color: #121110; }
 
 @font-face { font-family: 'Nunito'; font-style: normal; font-weight: 200 900; font-display: swap; src: url('/fonts/nunito.woff2') format('woff2'); }

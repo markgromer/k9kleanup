@@ -1,17 +1,225 @@
+import { metadataFor } from '@/lib/seo';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight, ShieldCheck, HeartHandshake, CalendarDays } from 'lucide-react';
+import Link from '@/components/site-link';
+import {
+  ArrowUpRight,
+  ShieldCheck,
+  HeartHandshake,
+  CalendarDays,
+} from 'lucide-react';
 import { getSiteSettings } from '@/db/site-data';
 import { QuoteLink, ClosingCTA } from '@/components/site-sections';
 import { services } from '@/lib/site-content';
 
+export const metadata = metadataFor('/');
+
 export default async function Home() {
   const settings = await getSiteSettings();
-  return <>
-    <section className="site-container py-8 md:py-12"><div className="grid overflow-hidden rounded-[1rem] bg-[#121110] text-white lg:min-h-[650px] lg:grid-cols-[1fr_1.05fr]"><div className="flex flex-col items-start justify-center px-7 py-12 sm:px-12 lg:py-16"><p className="eyebrow !text-[#FFB600]">Veteran-owned. Detail-obsessed.</p><h1 className="font-heading text-[clamp(3.1rem,5.5vw,5rem)] leading-[.99] tracking-[-.06em]">Your yard.<br/><span className="text-[#FFB600]">Crime scene<br/>clean.</span></h1><p className="mt-7 max-w-sm text-lg leading-relaxed">You handle the belly rubs. We’ll handle the backyard cleanup. Reliable pet waste removal from a local, veteran-owned crew.</p><div className="mt-8"><QuoteLink/></div><p className="mt-4 text-sm">Free quote. No long-term contracts.</p></div><div className="relative min-h-[390px] lg:min-h-full"><Image src={settings.heroImageKey ? `/media/${encodeURIComponent(settings.heroImageKey)}` : '/images/yard-dog.jpg'} alt="A golden retriever enjoying a green lawn" fill sizes="(max-width: 1024px) 100vw, 52vw" priority unoptimized={Boolean(settings.heroImageKey)} className="photo"/><span className="absolute right-5 bottom-5 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-semibold shadow-sm">Local crew. Thorough cleanup.</span></div></div><div className="flex flex-wrap justify-center gap-x-10 gap-y-4 border-b py-7 text-sm font-semibold"><span className="flex gap-2"><ShieldCheck size={19}/> Veteran-owned & insured</span><span className="flex gap-2"><CalendarDays size={19}/> Flexible cleanup schedules</span><span className="flex gap-2"><HeartHandshake size={19}/> Local people, personal service</span></div></section>
-    <section className="site-container section-space !pt-12"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="eyebrow">A little help goes a long way</p><h2 className="section-title">A cleaner yard.<br/>A lighter to-do list.</h2></div><p className="body-copy max-w-md">Busy weeks happen. So do Minnesota winters. Whether you need a fresh start or someone to keep things under control, we’ve got a cleanup for that.</p></div><div className="mt-12 grid gap-6 md:grid-cols-3">{services.map((s,i) => <Link href={`/services/${s.slug}`} key={s.slug} className="group flex flex-col border-t-2 border-primary pt-6"><div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">0{i+1} / {s.tag}</span><ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"/></div><h3 className="mt-7 font-heading text-3xl tracking-tight">{s.title}</h3><p className="mt-4 flex-1 leading-relaxed text-muted-foreground">{s.summary}</p><span className="mt-6 font-semibold underline underline-offset-4">Explore {s.short.toLowerCase()}</span></Link>)}</div></section>
-    <section className="bg-white"><div className="site-container content-grid section-space items-center"><div className="relative aspect-[5/4] overflow-hidden rounded-t-[9rem]"><Image src="/images/dog-walk.jpg" alt="A person spending time outdoors with their dog" fill sizes="(max-width: 1024px) 100vw, 50vw" className="photo"/></div><div><p className="eyebrow">Two brothers. One simple idea.</p><h2 className="section-title">Good service starts<br/>with good people.</h2><p className="body-copy mt-7">K9 Kleanup was founded by two brothers with backgrounds in canine handling and sanitation. Caring for dogs and getting the details right isn’t a new idea for us. It’s where we started.</p><p className="body-copy mt-5">Today, we bring that same care to homes and shared spaces across the St. Cloud area. A familiar local business. A job done thoughtfully. One less thing on your plate.</p><Link href="/about" className="text-link mt-8">Get to know K9 Kleanup <ArrowUpRight size={18}/></Link></div></div></section>
-    <section className="site-container section-space"><p className="eyebrow">Easy from the first hello</p><div className="content-grid"><h2 className="section-title">A fresh yard is<br/>three steps away.</h2><ol className="space-y-8">{[['Tell us about your yard','Share your ZIP code, number of dogs, and the kind of cleanup you need.'],['Find your fit','We’ll confirm your service area, talk through your schedule, and provide your quote.'],['Leave the scooping to us','Our crew handles the waste pickup so you can get back to enjoying your space.']].map(([title,body],i) => <li key={title} className="flex gap-5 border-b pb-8"><span className="font-heading text-3xl text-primary/50">0{i+1}</span><div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{body}</p></div></li>)}</ol></div></section>
-    <section className="bg-primary py-16 text-white"><div className="site-container content-grid items-center"><div><p className="eyebrow !text-[#FFB600]">Rooted right here</p><h2 className="section-title !text-white">Central Minnesota.<br/>Your neck of the woods.</h2><p className="mt-6 max-w-md text-lg leading-relaxed text-white/75">Serving dog people in St. Cloud, Sartell, Sauk Rapids, St. Joseph, and nearby communities.</p><Link href="/service-areas" className="text-link mt-7">See where we scoop <ArrowUpRight size={18}/></Link></div><div className="grid grid-cols-2 gap-4">{['St. Cloud','Sartell','Sauk Rapids','St. Joseph'].map(city => <div key={city} className="border-b border-white/30 py-7 font-heading text-2xl sm:text-3xl">{city}</div>)}<p className="col-span-2 mt-3 text-sm text-white/70">Just outside these areas? Ask us about your address.</p></div></div></section><ClosingCTA/>
-  </>;
+  return (
+    <>
+      <section className="site-container py-8 md:py-12">
+        <div className="grid overflow-hidden rounded-[1rem] bg-[#121110] text-white lg:min-h-[650px] lg:grid-cols-[1fr_1.05fr]">
+          <div className="flex flex-col items-start justify-center px-7 py-12 sm:px-12 lg:py-16">
+            <p className="eyebrow !text-[#FFB600]">
+              Veteran-owned. Detail-obsessed.
+            </p>
+            <h1 className="font-heading text-[clamp(3.1rem,5.5vw,5rem)] leading-[.99] tracking-[-.06em]">
+              Your yard.
+              <br />
+              <span className="text-[#FFB600]">
+                Crime scene
+                <br />
+                clean.
+              </span>
+            </h1>
+            <p className="mt-7 max-w-sm text-lg leading-relaxed">
+              You handle the belly rubs. We’ll handle the backyard cleanup.
+              Reliable pet waste removal from a local, veteran-owned crew.
+            </p>
+            <div className="mt-8">
+              <QuoteLink />
+            </div>
+            <p className="mt-4 text-sm">Free quote. No long-term contracts.</p>
+          </div>
+          <div className="relative min-h-[390px] lg:min-h-full">
+            <Image
+              src={
+                settings.heroImageKey
+                  ? `/media/${encodeURIComponent(settings.heroImageKey)}`
+                  : '/images/yard-dog.jpg'
+              }
+              alt="A golden retriever enjoying a green lawn"
+              fill
+              sizes="(max-width: 1024px) 100vw, 52vw"
+              priority
+              unoptimized={Boolean(settings.heroImageKey)}
+              className="photo"
+            />
+            <span className="absolute right-5 bottom-5 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-semibold shadow-sm">
+              Local crew. Thorough cleanup.
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 border-b py-7 text-sm font-semibold">
+          <span className="flex gap-2">
+            <ShieldCheck size={19} /> Veteran-owned & insured
+          </span>
+          <span className="flex gap-2">
+            <CalendarDays size={19} /> Flexible cleanup schedules
+          </span>
+          <span className="flex gap-2">
+            <HeartHandshake size={19} /> Local people, personal service
+          </span>
+        </div>
+      </section>
+      <section className="site-container section-space !pt-12">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow">A little help goes a long way</p>
+            <h2 className="section-title">
+              A cleaner yard.
+              <br />A lighter to-do list.
+            </h2>
+          </div>
+          <p className="body-copy max-w-md">
+            Busy weeks happen. So do Minnesota winters. Whether you need a fresh
+            start or someone to keep things under control, we’ve got a cleanup
+            for that.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {services.map((s, i) => (
+            <Link
+              href={`/services/${s.slug}`}
+              key={s.slug}
+              className="group flex flex-col border-t-2 border-primary pt-6"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">
+                  0{i + 1} / {s.tag}
+                </span>
+                <ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </div>
+              <h3 className="mt-7 font-heading text-3xl tracking-tight">
+                {s.title}
+              </h3>
+              <p className="mt-4 flex-1 leading-relaxed text-muted-foreground">
+                {s.summary}
+              </p>
+              <span className="mt-6 font-semibold underline underline-offset-4">
+                Explore {s.short.toLowerCase()}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="bg-white">
+        <div className="site-container content-grid section-space items-center">
+          <div className="relative aspect-[5/4] overflow-hidden rounded-t-[9rem]">
+            <Image
+              src="/images/dog-walk.jpg"
+              alt="A person spending time outdoors with their dog"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="photo"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">Two brothers. One simple idea.</p>
+            <h2 className="section-title">
+              Good service starts
+              <br />
+              with good people.
+            </h2>
+            <p className="body-copy mt-7">
+              K9 Kleanup was founded by two brothers with backgrounds in canine
+              handling and sanitation. Caring for dogs and getting the details
+              right isn’t a new idea for us. It’s where we started.
+            </p>
+            <p className="body-copy mt-5">
+              Today, we bring that same care to homes and shared spaces across
+              the St. Cloud area. A familiar local business. A job done
+              thoughtfully. One less thing on your plate.
+            </p>
+            <Link href="/about" className="text-link mt-8">
+              Get to know K9 Kleanup <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="site-container section-space">
+        <p className="eyebrow">Easy from the first hello</p>
+        <div className="content-grid">
+          <h2 className="section-title">
+            A fresh yard is
+            <br />
+            three steps away.
+          </h2>
+          <ol className="space-y-8">
+            {[
+              [
+                'Tell us about your yard',
+                'Share your ZIP code, number of dogs, and the kind of cleanup you need.',
+              ],
+              [
+                'Find your fit',
+                'We’ll confirm your service area, talk through your schedule, and provide your quote.',
+              ],
+              [
+                'Leave the scooping to us',
+                'Our crew handles the waste pickup so you can get back to enjoying your space.',
+              ],
+            ].map(([title, body], i) => (
+              <li key={title} className="flex gap-5 border-b pb-8">
+                <span className="font-heading text-3xl text-primary/50">
+                  0{i + 1}
+                </span>
+                <div>
+                  <h3 className="text-xl font-semibold">{title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">
+                    {body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+      <section className="bg-primary py-16 text-white">
+        <div className="site-container content-grid items-center">
+          <div>
+            <p className="eyebrow !text-[#FFB600]">Rooted right here</p>
+            <h2 className="section-title !text-white">
+              Central Minnesota.
+              <br />
+              Your neck of the woods.
+            </h2>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/75">
+              Serving dog people in St. Cloud, Sartell, Sauk Rapids, St. Joseph,
+              and nearby communities.
+            </p>
+            <Link href="/service-areas" className="text-link mt-7">
+              See where we scoop <ArrowUpRight size={18} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {['St. Cloud', 'Sartell', 'Sauk Rapids', 'St. Joseph'].map(
+              (city) => (
+                <div
+                  key={city}
+                  className="border-b border-white/30 py-7 font-heading text-2xl sm:text-3xl"
+                >
+                  {city}
+                </div>
+              ),
+            )}
+            <p className="col-span-2 mt-3 text-sm text-white/70">
+              Just outside these areas? Ask us about your address.
+            </p>
+          </div>
+        </div>
+      </section>
+      <ClosingCTA />
+    </>
+  );
 }

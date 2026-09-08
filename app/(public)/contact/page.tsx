@@ -1,7 +1,68 @@
-import type { Metadata } from 'next';
+import { metadataFor } from '@/lib/seo';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { QuoteForm } from '@/components/quote-form';
 import { PageIntro } from '@/components/site-sections';
 import { getSiteSettings } from '@/db/site-data';
-export const metadata: Metadata = { title: 'Get a Free Quote', description: 'Request a free pet waste removal quote from K9 Kleanup. Tell our local crew about your yard, dogs, and preferred cleanup schedule.' };
-export default async function Contact() { const s=await getSiteSettings(); return <><PageIntro eyebrow="Let’s take scooping off your list" title="A clean yard starts with a hello." description="Tell us a little about your yard. We’ll confirm coverage, talk through the options, and follow up with your free quote."/><section className="site-container grid items-start gap-12 pb-24 lg:grid-cols-[.85fr_1.15fr]"><div><h2 className="font-heading text-3xl">Prefer to talk it through?</h2><p className="body-copy mt-4 max-w-md">Call or email us with questions about your home, a one-time cleanup, or a commercial property.</p><div className="mt-8 space-y-6"><a href={`tel:${s.phone.replace(/\D/g,'')}`} className="flex items-center gap-4 text-xl"><Phone size={22}/>{s.phone}</a><a href={`mailto:${s.email}`} className="flex items-center gap-4 break-all"><Mail size={22} className="shrink-0"/>{s.email}</a><p className="flex gap-4 leading-relaxed"><MapPin size={22} className="shrink-0"/>St. Cloud, Sartell, Sauk Rapids,<br/>St. Joseph & surrounding communities</p></div><div className="mt-12 border-t pt-8"><h2 className="font-semibold">What happens next?</h2><ol className="mt-4 list-decimal space-y-3 pl-5 leading-relaxed text-muted-foreground"><li>We review your yard and service details.</li><li>We confirm your address is on our service area.</li><li>We follow up with pricing and discuss scheduling.</li></ol><p className="mt-6 text-sm leading-relaxed text-muted-foreground">Submitting this form requests a quote. It doesn’t book a visit or commit you to service. Please don’t include gate codes or other sensitive information here.</p></div></div><div><h2 className="mb-5 font-heading text-3xl">Tell us about your yard.</h2><QuoteForm/></div></section></>; }
+export const metadata = metadataFor('/contact');
+export default async function Contact() {
+  const s = await getSiteSettings();
+  return (
+    <>
+      <PageIntro
+        eyebrow="Let’s take scooping off your list"
+        title="Get your free dog waste removal quote."
+        description="Tell us a little about your yard. We’ll confirm coverage, talk through the options, and follow up with your free quote."
+      />
+      <section className="site-container grid items-start gap-12 pb-24 lg:grid-cols-[.85fr_1.15fr]">
+        <div>
+          <h2 className="font-heading text-3xl">Prefer to talk it through?</h2>
+          <p className="body-copy mt-4 max-w-md">
+            Call or email us with questions about your home, a one-time cleanup,
+            or a commercial property.
+          </p>
+          <div className="mt-8 space-y-6">
+            <a
+              href={`tel:${s.phone.replace(/\D/g, '')}`}
+              className="flex items-center gap-4 text-xl"
+            >
+              <Phone size={22} />
+              {s.phone}
+            </a>
+            <a
+              href={`mailto:${s.email}`}
+              className="flex items-center gap-4 break-all"
+            >
+              <Mail size={22} className="shrink-0" />
+              {s.email}
+            </a>
+            <p className="flex gap-4 leading-relaxed">
+              <MapPin size={22} className="shrink-0" />
+              St. Cloud, Sartell, Sauk Rapids,
+              <br />
+              St. Joseph & surrounding communities
+            </p>
+          </div>
+          <div className="mt-12 border-t pt-8">
+            <h2 className="font-semibold">What happens next?</h2>
+            <ol className="mt-4 list-decimal space-y-3 pl-5 leading-relaxed text-muted-foreground">
+              <li>We review your yard and service details.</li>
+              <li>We confirm your address is on our service area.</li>
+              <li>We follow up with pricing and discuss scheduling.</li>
+            </ol>
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+              Submitting this form requests a quote. It doesn’t book a visit or
+              commit you to service. Please don’t include gate codes or other
+              sensitive information here.
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2 className="mb-5 font-heading text-3xl">
+            Tell us about your yard.
+          </h2>
+          <QuoteForm />
+        </div>
+      </section>
+    </>
+  );
+}
