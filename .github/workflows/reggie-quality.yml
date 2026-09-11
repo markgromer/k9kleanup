@@ -83,6 +83,7 @@ jobs:
           set -euo pipefail
           npm run reggie:doctor
           npm run reggie:workflow-qa
+          npm run cf:typegen
           npm run build
 
       - name: Select compatible browser
