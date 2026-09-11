@@ -674,99 +674,163 @@ export const reggieSourceMap = [
   },
   {
     "type": "text",
-    "value": "Number of dogs",
+    "value": "; lastTimes: Array",
     "filePath": "components/quote-form.tsx",
-    "line": 112,
-    "column": 32,
+    "line": 10,
+    "column": 138,
+    "symbol": "quote-form"
+  },
+  {
+    "type": "text",
+    "value": "Your quote is on its way.",
+    "filePath": "components/quote-form.tsx",
+    "line": 58,
+    "column": 247,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Choose one",
+    "value": "K9 Kleanup received your details through Sweep & Go and will help get your service started.",
     "filePath": "components/quote-form.tsx",
-    "line": 119,
-    "column": 29,
+    "line": 58,
+    "column": 352,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "4 or more",
+    "value": "Your Sweep & Go quote",
     "filePath": "components/quote-form.tsx",
-    "line": 123,
-    "column": 31,
+    "line": 59,
+    "column": 161,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Shared / commercial property",
+    "value": "Your yard is covered.",
     "filePath": "components/quote-form.tsx",
-    "line": 124,
-    "column": 35,
+    "line": 59,
+    "column": 244,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Preferred service",
+    "value": "Per cleanup",
     "filePath": "components/quote-form.tsx",
-    "line": 128,
-    "column": 37,
+    "line": 59,
+    "column": 365,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Choose one",
+    "value": "Final pricing may change if yard conditions are different from the quote details.",
     "filePath": "components/quote-form.tsx",
-    "line": 135,
-    "column": 29,
+    "line": 59,
+    "column": 714,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Every other week",
+    "value": "Sending…",
     "filePath": "components/quote-form.tsx",
-    "line": 137,
-    "column": 37,
+    "line": 59,
+    "column": 1134,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "One-time / spring cleanup",
+    "value": "Change my details",
     "filePath": "components/quote-form.tsx",
-    "line": 139,
-    "column": 36,
+    "line": 59,
+    "column": 1318,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Commercial service",
+    "value": "Instant Sweep & Go quote",
     "filePath": "components/quote-form.tsx",
-    "line": 140,
-    "column": 39,
+    "line": 60,
+    "column": 179,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Not sure yet",
+    "value": "Let’s check your yard.",
     "filePath": "components/quote-form.tsx",
-    "line": 141,
-    "column": 35,
+    "line": 60,
+    "column": 265,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "(optional)",
+    "value": "Enter your ZIP code to see live K9 Kleanup service options and pricing.",
     "filePath": "components/quote-form.tsx",
-    "line": 148,
-    "column": 62,
+    "line": 60,
+    "column": 350,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Request my free quote",
+    "value": "ZIP code",
     "filePath": "components/quote-form.tsx",
-    "line": 174,
-    "column": 12,
+    "line": 60,
+    "column": 484,
     "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Checking…",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 1004,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Step 2 of 2",
+    "filePath": "components/quote-form.tsx",
+    "line": 61,
+    "column": 219,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Tell us about your yard.",
+    "filePath": "components/quote-form.tsx",
+    "line": 61,
+    "column": 288,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Change ZIP",
+    "filePath": "components/quote-form.tsx",
+    "line": 61,
+    "column": 416,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "I agree that K9 Kleanup may contact me by text or phone about this quote.",
+    "filePath": "components/quote-form.tsx",
+    "line": 61,
+    "column": 1765,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Building quote…",
+    "filePath": "components/quote-form.tsx",
+    "line": 61,
+    "column": 2146,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "void; items: Array",
+    "filePath": "components/quote-form.tsx",
+    "line": 65,
+    "column": 127,
+    "symbol": "Select"
   },
   {
     "type": "text",
