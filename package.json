@@ -10,7 +10,7 @@
     "build": "vinext build",
     "cf:build": "vinext build",
     "cf:deploy": "npm run cf:build && npx wrangler deploy --config wrangler.jsonc",
-    "start": "wrangler dev --config dist/server/wrangler.json",
+    "start": "wrangler dev --config wrangler.jsonc",
     "lint": "oxlint",
     "format": "oxfmt",
     "db:generate": "drizzle-kit generate",
