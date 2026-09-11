@@ -1,0 +1,41 @@
+name: REGGIE nurture processor
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: reggie-nurture-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event_name == 'workflow_dispatch' || vars.NURTURE_SCHEDULER_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    env:
+      REGGIE_LIVE_URL: ${{ vars.REGGIE_LIVE_URL }}
+      NURTURE_EVENT_TOKEN: ${{ secrets.NURTURE_EVENT_TOKEN }}
+    steps:
+      - name: Validate nurture scheduler configuration
+        shell: bash
+        run: |
+          if [ -z "$REGGIE_LIVE_URL" ]; then
+            echo "Set the REGGIE_LIVE_URL repository variable before enabling nurture."
+            exit 1
+          fi
+          if [ -z "$NURTURE_EVENT_TOKEN" ]; then
+            echo "Set the NURTURE_EVENT_TOKEN repository secret to the same value used by the site."
+            exit 1
+          fi
+
+      - name: Process due nurture messages
+        shell: bash
+        run: |
+          curl --fail-with-body --silent --show-error --retry 2 \
+            --request POST \
+            --header "Authorization: Bearer $NURTURE_EVENT_TOKEN" \
+            "${REGGIE_LIVE_URL%/}/api/nurture/process?limit=25"

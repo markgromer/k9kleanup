@@ -1,0 +1,800 @@
+{
+  "schemaVersion": 3,
+  "version": "0.5.49",
+  "template": "next-app-router",
+  "installedAt": "2026-09-11T17:02:33.487Z",
+  "repo": {
+    "owner": "markgromer",
+    "name": "k9kleanup"
+  },
+  "sourceRepo": {
+    "owner": "markgromer",
+    "name": "Reggie",
+    "ref": "main"
+  },
+  "siteName": "K9 Kleanup",
+  "platform": "worker",
+  "sourceRoot": "",
+  "managedFiles": {
+    ".github/workflows/reggie-nurture.yml": {
+      "installedHash": "sha256-a72d89be01652f8163a37a4e55cf189b2525478da9adc2aa264196f2823ed652",
+      "templateHash": "sha256-a72d89be01652f8163a37a4e55cf189b2525478da9adc2aa264196f2823ed652"
+    },
+    ".github/workflows/reggie-quality.yml": {
+      "installedHash": "sha256-d2cf5c5f4e55cda24ef0ab7ab0e8e5b2c751c099f491ba003d2cc3c455a3b8b9",
+      "templateHash": "sha256-d2cf5c5f4e55cda24ef0ab7ab0e8e5b2c751c099f491ba003d2cc3c455a3b8b9"
+    },
+    "docs/admin-revision-system.md": {
+      "installedHash": "sha256-fd3cae1df247a8812318fea777753b8ee825e80a0b637336c74391ba3a980dfb",
+      "templateHash": "sha256-fd3cae1df247a8812318fea777753b8ee825e80a0b637336c74391ba3a980dfb"
+    },
+    "docs/billing-system.md": {
+      "installedHash": "sha256-9db9d584d2b4e78b98834b382f07336413151252db9e689eaef6ad6d03d02a2f",
+      "templateHash": "sha256-9db9d584d2b4e78b98834b382f07336413151252db9e689eaef6ad6d03d02a2f"
+    },
+    "docs/nurture-system.md": {
+      "installedHash": "sha256-014491bda57e72f45331d147baff08fcd178e57f5ade9bfb1a73a26977bfad0e",
+      "templateHash": "sha256-014491bda57e72f45331d147baff08fcd178e57f5ade9bfb1a73a26977bfad0e"
+    },
+    "docs/reggie-site-context.md": {
+      "installedHash": "sha256-91a227212267361e436c15e1a7113c6615484741865a7e612785bed573fd1afa",
+      "templateHash": "sha256-91a227212267361e436c15e1a7113c6615484741865a7e612785bed573fd1afa"
+    },
+    "scripts/google-reporting-qa.mjs": {
+      "installedHash": "sha256-cdcee507f4923a8682eac3102e9861255cd764efa7b40bcfbcb97b169ea27cf5",
+      "templateHash": "sha256-cdcee507f4923a8682eac3102e9861255cd764efa7b40bcfbcb97b169ea27cf5"
+    },
+    "scripts/reggie-api-qa.mjs": {
+      "installedHash": "sha256-7bb1d6e4ed6e99311e5b42c3db94264efc12666aa70e6c58bfbd6ed35f03e123",
+      "templateHash": "sha256-7bb1d6e4ed6e99311e5b42c3db94264efc12666aa70e6c58bfbd6ed35f03e123"
+    },
+    "scripts/reggie-cloudflare-types.mjs": {
+      "installedHash": "sha256-e2189f2624fd748dd3904420ebc8d1e8018b0cf2a2b66be1d036c4cf9efb2f06",
+      "templateHash": "sha256-e2189f2624fd748dd3904420ebc8d1e8018b0cf2a2b66be1d036c4cf9efb2f06"
+    },
+    "scripts/reggie-doctor.mjs": {
+      "installedHash": "sha256-8056f2359c5ac0e8f29037db87a6b872f1c7f4e4f5d06392f459ab46ca95b4fe",
+      "templateHash": "sha256-8056f2359c5ac0e8f29037db87a6b872f1c7f4e4f5d06392f459ab46ca95b4fe"
+    },
+    "scripts/reggie-full-qa.mjs": {
+      "installedHash": "sha256-8411eb8cc106d526619a425e424d02d0e7e327b19b7fd2d70e48cad665295ace",
+      "templateHash": "sha256-8411eb8cc106d526619a425e424d02d0e7e327b19b7fd2d70e48cad665295ace"
+    },
+    "scripts/reggie-lens-browser-qa.mjs": {
+      "installedHash": "sha256-d7dedcaaf7e88f85b6fe341af3a1c1bf06005d8688861ff1030c42d514f79c96",
+      "templateHash": "sha256-d7dedcaaf7e88f85b6fe341af3a1c1bf06005d8688861ff1030c42d514f79c96"
+    },
+    "scripts/reggie-lens-retry.mjs": {
+      "installedHash": "sha256-1c7d0f1e35fada2d7d9ce9be9a8e9a6423585408c48e6cf00ce1801e19003964",
+      "templateHash": "sha256-1c7d0f1e35fada2d7d9ce9be9a8e9a6423585408c48e6cf00ce1801e19003964"
+    },
+    "scripts/reggie-lint-baseline.mjs": {
+      "installedHash": "sha256-a1da669c0630d9de06dbde0b6807f8b74add14a26402a8d14ee2f7923afdc449",
+      "templateHash": "sha256-a1da669c0630d9de06dbde0b6807f8b74add14a26402a8d14ee2f7923afdc449"
+    },
+    "scripts/reggie-lint-compat.mjs": {
+      "installedHash": "sha256-df98bec02e9e5e922971775f5b90c51fcedba4d843f7c61a14fbf009a7293583",
+      "templateHash": "sha256-df98bec02e9e5e922971775f5b90c51fcedba4d843f7c61a14fbf009a7293583"
+    },
+    "scripts/reggie-page-registry-qa.mjs": {
+      "installedHash": "sha256-3d61e0d35f8f2a9610635ef01598028be0a0a7e3fcef0cf4c35d2fecd29cc12c",
+      "templateHash": "sha256-3d61e0d35f8f2a9610635ef01598028be0a0a7e3fcef0cf4c35d2fecd29cc12c"
+    },
+    "scripts/reggie-page-registry.mjs": {
+      "installedHash": "sha256-745229ca4d7894866101e86681fa3a91a538852e845b99266341235b2be35101",
+      "templateHash": "sha256-745229ca4d7894866101e86681fa3a91a538852e845b99266341235b2be35101"
+    },
+    "scripts/reggie-render-storage.mjs": {
+      "installedHash": "sha256-0437d3878e108e06ccf4d1f353bd6f35d322406e5d37cf5715608aed8c907fce",
+      "templateHash": "sha256-0437d3878e108e06ccf4d1f353bd6f35d322406e5d37cf5715608aed8c907fce"
+    },
+    "scripts/reggie-source-map.mjs": {
+      "installedHash": "sha256-826d85efa6e539815fa47df467edd13fa77f528684d9ea326b67c1f888163df5",
+      "templateHash": "sha256-826d85efa6e539815fa47df467edd13fa77f528684d9ea326b67c1f888163df5"
+    },
+    "scripts/reggie-static-server.mjs": {
+      "installedHash": "sha256-fc8540f3e7a17dd69e1994589e03d37d9cd12dc299392b2399ad6ed94bef36d7",
+      "templateHash": "sha256-fc8540f3e7a17dd69e1994589e03d37d9cd12dc299392b2399ad6ed94bef36d7"
+    },
+    "scripts/reggie-workflow-qa.mjs": {
+      "installedHash": "sha256-27adabf639f68ccba1c05629775298c63a847e024591e6938a771ce0fd024d0e",
+      "templateHash": "sha256-27adabf639f68ccba1c05629775298c63a847e024591e6938a771ce0fd024d0e"
+    },
+    "app/admin/analytics/page.tsx": {
+      "installedHash": "sha256-b8b134e35856c20d255143c4e07cfa3238265500cb155e65bd8eab5bef36fad0",
+      "templateHash": "sha256-b8b134e35856c20d255143c4e07cfa3238265500cb155e65bd8eab5bef36fad0"
+    },
+    "app/admin/billing/page.tsx": {
+      "installedHash": "sha256-8a855761665b9477d3a2e8db84347f706b0b58ae5c465117a9bfeb8ef91b3639",
+      "templateHash": "sha256-8a855761665b9477d3a2e8db84347f706b0b58ae5c465117a9bfeb8ef91b3639"
+    },
+    "app/admin/blog-posts/page.tsx": {
+      "installedHash": "sha256-c7f712d24626c93d2b4eef1acfab3fe7e230aa47e4f307817c742433cd517ba2",
+      "templateHash": "sha256-c7f712d24626c93d2b4eef1acfab3fe7e230aa47e4f307817c742433cd517ba2"
+    },
+    "app/admin/growth/opportunities/page.tsx": {
+      "installedHash": "sha256-97f4bc7fe73ad32aa8da40809cb7f33a40d3c88633a8f0745e096cceec906859",
+      "templateHash": "sha256-97f4bc7fe73ad32aa8da40809cb7f33a40d3c88633a8f0745e096cceec906859"
+    },
+    "app/admin/growth/page.tsx": {
+      "installedHash": "sha256-ffe53b059fc2be10398075f844d4dc1337f0b2c1e6aca404621d3a106668ad13",
+      "templateHash": "sha256-ffe53b059fc2be10398075f844d4dc1337f0b2c1e6aca404621d3a106668ad13"
+    },
+    "app/admin/integrations/page.tsx": {
+      "installedHash": "sha256-f23b6894f888c3bf1dcdbd6683f692e855a09da514c1882533c42e7b279dd6d8",
+      "templateHash": "sha256-f23b6894f888c3bf1dcdbd6683f692e855a09da514c1882533c42e7b279dd6d8"
+    },
+    "app/admin/internal/page.tsx": {
+      "installedHash": "sha256-78396ca45cf64436ae218f7acef9895cbf58abff99f2f373088d20aaca13a184",
+      "templateHash": "sha256-78396ca45cf64436ae218f7acef9895cbf58abff99f2f373088d20aaca13a184"
+    },
+    "app/admin/landing-pages/page.tsx": {
+      "installedHash": "sha256-038231634dbbe7b3984ad6668b704f28a7d38d2607002009faeb60a9ec1302d5",
+      "templateHash": "sha256-038231634dbbe7b3984ad6668b704f28a7d38d2607002009faeb60a9ec1302d5"
+    },
+    "app/admin/layout.tsx": {
+      "installedHash": "sha256-4fa009654a3f36fbbf5b2f233ad1088b352b4f81c09318ad73164c9235c3d5b2",
+      "templateHash": "sha256-4fa009654a3f36fbbf5b2f233ad1088b352b4f81c09318ad73164c9235c3d5b2"
+    },
+    "app/admin/leads/activity/page.tsx": {
+      "installedHash": "sha256-48b019a95d30516130a54efb4e9e9ca513365beb62dd02a82bc9a6da148aabd5",
+      "templateHash": "sha256-48b019a95d30516130a54efb4e9e9ca513365beb62dd02a82bc9a6da148aabd5"
+    },
+    "app/admin/leads/page.tsx": {
+      "installedHash": "sha256-98dcda8368de1ffd91cf406069197282714fee4175c4de0b1133f6d057084cad",
+      "templateHash": "sha256-98dcda8368de1ffd91cf406069197282714fee4175c4de0b1133f6d057084cad"
+    },
+    "app/admin/leads/sources/page.tsx": {
+      "installedHash": "sha256-27a3a7af643d5a1bbf4bbea4f8c30a695dd5b58a0db3381d388a2a9b562b3fff",
+      "templateHash": "sha256-27a3a7af643d5a1bbf4bbea4f8c30a695dd5b58a0db3381d388a2a9b562b3fff"
+    },
+    "app/admin/media/page.tsx": {
+      "installedHash": "sha256-0d5b9653bbbf791f594f94846f9fa7ec93ac131208cb457bfede95baa7b6d48b",
+      "templateHash": "sha256-0d5b9653bbbf791f594f94846f9fa7ec93ac131208cb457bfede95baa7b6d48b"
+    },
+    "app/admin/nurture/page.tsx": {
+      "installedHash": "sha256-6e64ca130d36afe9f7d6af6d07cd2e2d42a1557a87e0d521235db634a23ec39e",
+      "templateHash": "sha256-6e64ca130d36afe9f7d6af6d07cd2e2d42a1557a87e0d521235db634a23ec39e"
+    },
+    "app/admin/page.tsx": {
+      "installedHash": "sha256-d49bd58d637319a7fbfd24373801dd2b50f22295ab40b64be0aed29c543b2fc8",
+      "templateHash": "sha256-d49bd58d637319a7fbfd24373801dd2b50f22295ab40b64be0aed29c543b2fc8"
+    },
+    "app/admin/quote-tool/page.tsx": {
+      "installedHash": "sha256-c73d29e8ce23a82e5746370eabdc4cbbd8e9da68f38fe82c0daa3514cab4087b",
+      "templateHash": "sha256-c73d29e8ce23a82e5746370eabdc4cbbd8e9da68f38fe82c0daa3514cab4087b"
+    },
+    "app/admin/rankings/page.tsx": {
+      "installedHash": "sha256-7464adc053b018e179e71e7a8a0adb6c86f89ce13cc9e7473901df4e89ecbcc2",
+      "templateHash": "sha256-7464adc053b018e179e71e7a8a0adb6c86f89ce13cc9e7473901df4e89ecbcc2"
+    },
+    "app/admin/reggie/feedback/page.tsx": {
+      "installedHash": "sha256-9a3cd879b8e4d5a73656f01412a1d627a4e348e27f9ad333f453e9ec0d4f8d54",
+      "templateHash": "sha256-9a3cd879b8e4d5a73656f01412a1d627a4e348e27f9ad333f453e9ec0d4f8d54"
+    },
+    "app/admin/reggie/page.tsx": {
+      "installedHash": "sha256-907a07e6f01df838c74a19e40f6d9d72ea6c781b8dd723cf3bb211b4e42b34f6",
+      "templateHash": "sha256-907a07e6f01df838c74a19e40f6d9d72ea6c781b8dd723cf3bb211b4e42b34f6"
+    },
+    "app/admin/reggie/published/page.tsx": {
+      "installedHash": "sha256-8f9f16825984775d3922f1458da554e683edf589f974b41e3688d2ef7986242d",
+      "templateHash": "sha256-8f9f16825984775d3922f1458da554e683edf589f974b41e3688d2ef7986242d"
+    },
+    "app/admin/reggie/requests/page.tsx": {
+      "installedHash": "sha256-a9d8046f17ee4ec9f684bcaa3972f087d0a7ab8e3fcada03280c07435782cd27",
+      "templateHash": "sha256-a9d8046f17ee4ec9f684bcaa3972f087d0a7ab8e3fcada03280c07435782cd27"
+    },
+    "app/admin/reggie/review/page.tsx": {
+      "installedHash": "sha256-c404c3b7e04aa05fd52de13f50833dfca5f67c87e2ca636c528f6fc2ef112e52",
+      "templateHash": "sha256-c404c3b7e04aa05fd52de13f50833dfca5f67c87e2ca636c528f6fc2ef112e52"
+    },
+    "app/admin/reggie-deploy/page.tsx": {
+      "installedHash": "sha256-6c7fac933925fab8681053aa1aac7d9b2f4fac31ddfcd9a0233172f002b4201d",
+      "templateHash": "sha256-6c7fac933925fab8681053aa1aac7d9b2f4fac31ddfcd9a0233172f002b4201d"
+    },
+    "app/admin/reggie-deploy/ReggieConnectionPage.module.css": {
+      "installedHash": "sha256-2f1676fe535cc9068981748123af31a52cabd0a6c9c0918c98d24d91658a14e6",
+      "templateHash": "sha256-2f1676fe535cc9068981748123af31a52cabd0a6c9c0918c98d24d91658a14e6"
+    },
+    "app/admin/reggie-lens/page.tsx": {
+      "installedHash": "sha256-c5756b2dbd3a1923702c917c18d8c2095afde68d7c40b71c5f04c4bd8d87aedd",
+      "templateHash": "sha256-c5756b2dbd3a1923702c917c18d8c2095afde68d7c40b71c5f04c4bd8d87aedd"
+    },
+    "app/admin/reggie-queue/page.tsx": {
+      "installedHash": "sha256-0ad816275f3a3fddedaf068c3855b1a26e1d829e0102c62e7ea0fa1520f02ca6",
+      "templateHash": "sha256-0ad816275f3a3fddedaf068c3855b1a26e1d829e0102c62e7ea0fa1520f02ca6"
+    },
+    "app/admin/reviews/page.tsx": {
+      "installedHash": "sha256-841c3d2a94b40a545ad21207f53e95f0b9d6f0bd5e1e25d3ea9bc32e21bc1fff",
+      "templateHash": "sha256-841c3d2a94b40a545ad21207f53e95f0b9d6f0bd5e1e25d3ea9bc32e21bc1fff"
+    },
+    "app/admin/seo/page.tsx": {
+      "installedHash": "sha256-050aba2d253d7238ca046a621b38da45609b07b0b013a722319ca55e685889fe",
+      "templateHash": "sha256-050aba2d253d7238ca046a621b38da45609b07b0b013a722319ca55e685889fe"
+    },
+    "app/admin/settings/page.tsx": {
+      "installedHash": "sha256-ff064812dd9566f50e72ff393e99ba493bd127e0100b7e27626ae982e6b65fda",
+      "templateHash": "sha256-ff064812dd9566f50e72ff393e99ba493bd127e0100b7e27626ae982e6b65fda"
+    },
+    "app/admin/setup/page.tsx": {
+      "installedHash": "sha256-5ef661e56d86590ce4712053712bb62ffdc9c4e48d71005d2f26dd6cadd44fe6",
+      "templateHash": "sha256-5ef661e56d86590ce4712053712bb62ffdc9c4e48d71005d2f26dd6cadd44fe6"
+    },
+    "app/admin/website/branding/page.tsx": {
+      "installedHash": "sha256-bcbbb5a01dcc3234e667a0db4357e76fb6d48c02a8e48991e2a20055e25d86c3",
+      "templateHash": "sha256-bcbbb5a01dcc3234e667a0db4357e76fb6d48c02a8e48991e2a20055e25d86c3"
+    },
+    "app/admin/website/locations/page.tsx": {
+      "installedHash": "sha256-6eefae5ab9c2a09549f0fddf8a8a6ddae7777f717ef05fe5cbc7383cf2affb76",
+      "templateHash": "sha256-6eefae5ab9c2a09549f0fddf8a8a6ddae7777f717ef05fe5cbc7383cf2affb76"
+    },
+    "app/admin/website/page.tsx": {
+      "installedHash": "sha256-e121b53eb68ca163aa98044ca3b3f955ba96a8eddd279efc5616a7cc2ca2b0ba",
+      "templateHash": "sha256-e121b53eb68ca163aa98044ca3b3f955ba96a8eddd279efc5616a7cc2ca2b0ba"
+    },
+    "app/admin/website/pages/page.tsx": {
+      "installedHash": "sha256-2df767eed323c198c4f150f6d267f15894327c232b204bee0782ef416e152212",
+      "templateHash": "sha256-2df767eed323c198c4f150f6d267f15894327c232b204bee0782ef416e152212"
+    },
+    "app/admin/website/services/page.tsx": {
+      "installedHash": "sha256-0a64a40b956f6dbe9d4ae6fcc159097ca33747b5515f6539dbe3e89f6e659754",
+      "templateHash": "sha256-0a64a40b956f6dbe9d4ae6fcc159097ca33747b5515f6539dbe3e89f6e659754"
+    },
+    "app/api/admin/analytics/route.ts": {
+      "installedHash": "sha256-b1a71fd577ba499d5de70c22794453c1926cc8ba00301fe6344aada8f394bc9b",
+      "templateHash": "sha256-b1a71fd577ba499d5de70c22794453c1926cc8ba00301fe6344aada8f394bc9b"
+    },
+    "app/api/admin/billing/route.ts": {
+      "installedHash": "sha256-1eeb0fc15d8fa70df370a80b927743f230256a93afc6e1cceac086bfa0135edb",
+      "templateHash": "sha256-1eeb0fc15d8fa70df370a80b927743f230256a93afc6e1cceac086bfa0135edb"
+    },
+    "app/api/admin/cloudinary/route.ts": {
+      "installedHash": "sha256-e948c96335013a1efa4fb12d35d146b017298d345223cc75fc6a35a8c4502dc0",
+      "templateHash": "sha256-e948c96335013a1efa4fb12d35d146b017298d345223cc75fc6a35a8c4502dc0"
+    },
+    "app/api/admin/content/route.ts": {
+      "installedHash": "sha256-4ec6d6390440521ae9b6cc7b63a28d8591b29f2a3bf17d00375829ba093ea0a6",
+      "templateHash": "sha256-4ec6d6390440521ae9b6cc7b63a28d8591b29f2a3bf17d00375829ba093ea0a6"
+    },
+    "app/api/admin/dashboard/route.ts": {
+      "installedHash": "sha256-a973e8ec02936e4fe6bd420b83426805c388045d63763a46d1d6fd86a8cf133b",
+      "templateHash": "sha256-a973e8ec02936e4fe6bd420b83426805c388045d63763a46d1d6fd86a8cf133b"
+    },
+    "app/api/admin/dashboard-overview/route.ts": {
+      "installedHash": "sha256-9ec289f068fae1d3cb0a8a3a39e9b336193595375d0528e5e716fbd74e4d85e0",
+      "templateHash": "sha256-9ec289f068fae1d3cb0a8a3a39e9b336193595375d0528e5e716fbd74e4d85e0"
+    },
+    "app/api/admin/email-access/route.ts": {
+      "installedHash": "sha256-712e38803aeb5dc9656c60d597e50d6e76b686c7e7d3e1492991665c82aece31",
+      "templateHash": "sha256-712e38803aeb5dc9656c60d597e50d6e76b686c7e7d3e1492991665c82aece31"
+    },
+    "app/api/admin/fonts/route.ts": {
+      "installedHash": "sha256-dc3b2c5349d372639283ee1e5c873c8c2af7b149ba2851af858fea6da8781fa0",
+      "templateHash": "sha256-dc3b2c5349d372639283ee1e5c873c8c2af7b149ba2851af858fea6da8781fa0"
+    },
+    "app/api/admin/google-business/callback/route.ts": {
+      "installedHash": "sha256-49b0a41152cbbe1fb9b236241555c033a7621213a5d0785842dd7968356ddf6a",
+      "templateHash": "sha256-49b0a41152cbbe1fb9b236241555c033a7621213a5d0785842dd7968356ddf6a"
+    },
+    "app/api/admin/google-business/connect/route.ts": {
+      "installedHash": "sha256-892b95f15dcb6087594c5657d75d8865d0ad7792663db88a99e6ee36ae4d767d",
+      "templateHash": "sha256-892b95f15dcb6087594c5657d75d8865d0ad7792663db88a99e6ee36ae4d767d"
+    },
+    "app/api/admin/integrations/route.ts": {
+      "installedHash": "sha256-a89d05b2e83c8978e08b80dbdf6e74dda28d91ec60edc43e984dd50f6848fcca",
+      "templateHash": "sha256-a89d05b2e83c8978e08b80dbdf6e74dda28d91ec60edc43e984dd50f6848fcca"
+    },
+    "app/api/admin/media/route.ts": {
+      "installedHash": "sha256-57271a503c380acb80d024cf2e82496165afa6bb0f57a2729fb3824110822a43",
+      "templateHash": "sha256-57271a503c380acb80d024cf2e82496165afa6bb0f57a2729fb3824110822a43"
+    },
+    "app/api/admin/nurture/route.ts": {
+      "installedHash": "sha256-793a8d6c0d7f6dbe649207772dd59f88c11aa0da9677176de81ca250fa1323cd",
+      "templateHash": "sha256-793a8d6c0d7f6dbe649207772dd59f88c11aa0da9677176de81ca250fa1323cd"
+    },
+    "app/api/admin/pages/route.ts": {
+      "installedHash": "sha256-a0963d49841cc8ce1c738ba8ba397317bda298a67b090473106198bb8ec2ad22",
+      "templateHash": "sha256-a0963d49841cc8ce1c738ba8ba397317bda298a67b090473106198bb8ec2ad22"
+    },
+    "app/api/admin/quote-settings/route.ts": {
+      "installedHash": "sha256-5ea38f5e9b64f5ef51fae713e6bc9f7c6c27e302caf7dd5823db9f627bba11ff",
+      "templateHash": "sha256-5ea38f5e9b64f5ef51fae713e6bc9f7c6c27e302caf7dd5823db9f627bba11ff"
+    },
+    "app/api/admin/rankings/route.ts": {
+      "installedHash": "sha256-2abc5240c5e6ed04ebc5b5a487414011b0d41c3387b81424d2aaf59d3ba27c03",
+      "templateHash": "sha256-2abc5240c5e6ed04ebc5b5a487414011b0d41c3387b81424d2aaf59d3ba27c03"
+    },
+    "app/api/admin/reggie-brand-voice/route.ts": {
+      "installedHash": "sha256-1fc16ba33c7c501b5bdc894ad0b3f7f21c72e05d2f9cf050b59682361a0eacef",
+      "templateHash": "sha256-1fc16ba33c7c501b5bdc894ad0b3f7f21c72e05d2f9cf050b59682361a0eacef"
+    },
+    "app/api/admin/reggie-catalog/route.ts": {
+      "installedHash": "sha256-b94c48552f2b2a32a3ab42ee33b02d2dfd08dea172de631f9cd9f984fe55d2b8",
+      "templateHash": "sha256-b94c48552f2b2a32a3ab42ee33b02d2dfd08dea172de631f9cd9f984fe55d2b8"
+    },
+    "app/api/admin/reggie-chat/route.ts": {
+      "installedHash": "sha256-f5dbfbde9e5b26e25c18f46e00a975ec73089f406367fa62a7f8e69f074add09",
+      "templateHash": "sha256-f5dbfbde9e5b26e25c18f46e00a975ec73089f406367fa62a7f8e69f074add09"
+    },
+    "app/api/admin/reggie-connect/route.ts": {
+      "installedHash": "sha256-a4183fbc9cf6a26f73ae68b0674bfa12fb34d2c20d2880955ffd5d0ccda00e79",
+      "templateHash": "sha256-a4183fbc9cf6a26f73ae68b0674bfa12fb34d2c20d2880955ffd5d0ccda00e79"
+    },
+    "app/api/admin/reggie-development-request/route.ts": {
+      "installedHash": "sha256-396d537c084f4549c8d90f163a343c4d00e5b1b68e8140478d911c0f734e50f7",
+      "templateHash": "sha256-396d537c084f4549c8d90f163a343c4d00e5b1b68e8140478d911c0f734e50f7"
+    },
+    "app/api/admin/reggie-feedback/route.ts": {
+      "installedHash": "sha256-9a603e5df9b860f8a4866e6b4debdb1730b9bc011cdc9ce7babd59b3b8ca52ca",
+      "templateHash": "sha256-9a603e5df9b860f8a4866e6b4debdb1730b9bc011cdc9ce7babd59b3b8ca52ca"
+    },
+    "app/api/admin/reggie-lens/auth/route.ts": {
+      "installedHash": "sha256-aece9491b24c7027d7446591b0a7136f31cf3a1bb62c3cd71d96fcfce00ca97b",
+      "templateHash": "sha256-aece9491b24c7027d7446591b0a7136f31cf3a1bb62c3cd71d96fcfce00ca97b"
+    },
+    "app/api/admin/reggie-mission/route.ts": {
+      "installedHash": "sha256-c1ad05e6354188a941bc22588907dd9e0050a9971f0fd1d1e5439334547f2e9e",
+      "templateHash": "sha256-c1ad05e6354188a941bc22588907dd9e0050a9971f0fd1d1e5439334547f2e9e"
+    },
+    "app/api/admin/reggie-rewrite/route.ts": {
+      "installedHash": "sha256-9bdef4291936dca2af3fb0768c4fcf574f4a5c3694ee31e8d5f745e361652d32",
+      "templateHash": "sha256-9bdef4291936dca2af3fb0768c4fcf574f4a5c3694ee31e8d5f745e361652d32"
+    },
+    "app/api/admin/reggie-source-map/route.ts": {
+      "installedHash": "sha256-866185b47e0c79620226f0370352099cce490978bb73303e4663b53066e0ca65",
+      "templateHash": "sha256-866185b47e0c79620226f0370352099cce490978bb73303e4663b53066e0ca65"
+    },
+    "app/api/admin/reggie-update/route.ts": {
+      "installedHash": "sha256-d469828b4c1d0638d940035965ace1bd8db07d28876abad013429c7e02179f37",
+      "templateHash": "sha256-d469828b4c1d0638d940035965ace1bd8db07d28876abad013429c7e02179f37"
+    },
+    "app/api/admin/reviews/route.ts": {
+      "installedHash": "sha256-889188698a76fe268f01556b3dc632c653d5703b5f6a665087dd543b3ce99c3e",
+      "templateHash": "sha256-889188698a76fe268f01556b3dc632c653d5703b5f6a665087dd543b3ce99c3e"
+    },
+    "app/api/admin/seo/route.ts": {
+      "installedHash": "sha256-4308e993976c0012f67225bd0d2e5e16318e331ac1404fd6f6d22e4b4ce6b1fd",
+      "templateHash": "sha256-4308e993976c0012f67225bd0d2e5e16318e331ac1404fd6f6d22e4b4ce6b1fd"
+    },
+    "app/api/admin/session/route.ts": {
+      "installedHash": "sha256-0c9ee2a3093c1a3b7f72d83f8605cfee906f22ce8089c4ae7d71ad7d39d4e1b3",
+      "templateHash": "sha256-0c9ee2a3093c1a3b7f72d83f8605cfee906f22ce8089c4ae7d71ad7d39d4e1b3"
+    },
+    "app/api/admin/settings/route.ts": {
+      "installedHash": "sha256-33718c8e595084bfbee0a94c0a75042f666ac76bc8332663676b1b19a687e0ce",
+      "templateHash": "sha256-33718c8e595084bfbee0a94c0a75042f666ac76bc8332663676b1b19a687e0ce"
+    },
+    "app/api/admin/site-health/route.ts": {
+      "installedHash": "sha256-3236dd9ec33d7643b705b085e416cd560bc05a2f9af284a4c419cbc7ec7e3e04",
+      "templateHash": "sha256-3236dd9ec33d7643b705b085e416cd560bc05a2f9af284a4c419cbc7ec7e3e04"
+    },
+    "app/api/admin/support-auth/route.ts": {
+      "installedHash": "sha256-d599e46605adcf51665ef31ddd1b0a1a7f8242f6960ba322464a9f119d0575df",
+      "templateHash": "sha256-d599e46605adcf51665ef31ddd1b0a1a7f8242f6960ba322464a9f119d0575df"
+    },
+    "app/api/admin/warren-connect/route.ts": {
+      "installedHash": "sha256-91da58d381ad549fe405437700e3b8926cf4f82147c594885807b9f181ddaed2",
+      "templateHash": "sha256-91da58d381ad549fe405437700e3b8926cf4f82147c594885807b9f181ddaed2"
+    },
+    "app/api/analytics/collect/route.ts": {
+      "installedHash": "sha256-50fc218a073a9c147f315b03e2f71cb859b58035917a677db16f6b0f14e4764e",
+      "templateHash": "sha256-50fc218a073a9c147f315b03e2f71cb859b58035917a677db16f6b0f14e4764e"
+    },
+    "app/api/analytics/journey/route.ts": {
+      "installedHash": "sha256-e8176c85c2e5894f310cbbf6a50b2652f22c81515fde3cef498c220b206a104c",
+      "templateHash": "sha256-e8176c85c2e5894f310cbbf6a50b2652f22c81515fde3cef498c220b206a104c"
+    },
+    "app/api/billing/payment/[token]/route.ts": {
+      "installedHash": "sha256-4a3fd9612a4628cbd582a67488d7e9f6afd88553b3f044be1970d56c71be5c31",
+      "templateHash": "sha256-4a3fd9612a4628cbd582a67488d7e9f6afd88553b3f044be1970d56c71be5c31"
+    },
+    "app/api/billing/sweep-and-go-webhook/route.ts": {
+      "installedHash": "sha256-5efa0334579b9345bb414afc115573e543c70d2c85c6ca17d8aa2fdfcd4771dc",
+      "templateHash": "sha256-5efa0334579b9345bb414afc115573e543c70d2c85c6ca17d8aa2fdfcd4771dc"
+    },
+    "app/api/integrations/sync/route.ts": {
+      "installedHash": "sha256-c743bb9c5d649b5467dd68992481c04f2bb0515b2039dbd70a16a0b1c35c01a9",
+      "templateHash": "sha256-c743bb9c5d649b5467dd68992481c04f2bb0515b2039dbd70a16a0b1c35c01a9"
+    },
+    "app/api/media/[id]/route.ts": {
+      "installedHash": "sha256-50555f6a1ee9621417453675cbc552778e9fcb78a3690aad05a049da97b98596",
+      "templateHash": "sha256-50555f6a1ee9621417453675cbc552778e9fcb78a3690aad05a049da97b98596"
+    },
+    "app/api/nurture/opt-out/route.ts": {
+      "installedHash": "sha256-77ae034c019133c17d1e518bb8ada816329893a9dd830d5cb291b5193988a39d",
+      "templateHash": "sha256-77ae034c019133c17d1e518bb8ada816329893a9dd830d5cb291b5193988a39d"
+    },
+    "app/api/nurture/process/route.ts": {
+      "installedHash": "sha256-dfb8bc028eaeb81cefc7250c71fdff90753f50826bceb4e8ee03395f2edf3ab6",
+      "templateHash": "sha256-dfb8bc028eaeb81cefc7250c71fdff90753f50826bceb4e8ee03395f2edf3ab6"
+    },
+    "app/api/nurture/quote/route.ts": {
+      "installedHash": "sha256-9d0bc03b59ba1757c8a762d2884fa6b282b016d312ab33c135076e946ae4ed09",
+      "templateHash": "sha256-9d0bc03b59ba1757c8a762d2884fa6b282b016d312ab33c135076e946ae4ed09"
+    },
+    "app/api/nurture/reply/route.ts": {
+      "installedHash": "sha256-6ab4878318458cb8aa6e99a290b2963c6dd4d6a47f66d4785cf96e7344cce528",
+      "templateHash": "sha256-6ab4878318458cb8aa6e99a290b2963c6dd4d6a47f66d4785cf96e7344cce528"
+    },
+    "app/api/nurture/signup/route.ts": {
+      "installedHash": "sha256-769674691509c5f263934a59cf0a27acb4dc4a5ad8e55121a04e81587e95f619",
+      "templateHash": "sha256-769674691509c5f263934a59cf0a27acb4dc4a5ad8e55121a04e81587e95f619"
+    },
+    "app/api/nurture/stop/route.ts": {
+      "installedHash": "sha256-8d6f2a0a7e36582433bd99a0092c76e1e494024a5de57939d3ec178b4819f3ee",
+      "templateHash": "sha256-8d6f2a0a7e36582433bd99a0092c76e1e494024a5de57939d3ec178b4819f3ee"
+    },
+    "app/api/nurture/webhook/route.ts": {
+      "installedHash": "sha256-8978e39369547426531e5cc79002b225f128db9f2c834ba5356108bac5df7d7b",
+      "templateHash": "sha256-8978e39369547426531e5cc79002b225f128db9f2c834ba5356108bac5df7d7b"
+    },
+    "app/api/quote/coupon/route.ts": {
+      "installedHash": "sha256-58cca007a15a1cce2f8451db18144ef45528a1954331de6e407dfe87d2c87960",
+      "templateHash": "sha256-58cca007a15a1cce2f8451db18144ef45528a1954331de6e407dfe87d2c87960"
+    },
+    "app/api/quote/lead/route.ts": {
+      "installedHash": "sha256-6bfbecbc94ccd0784f9a9ccb9e80253fe9d2f0cc70320ef18c9ee8280256e733",
+      "templateHash": "sha256-6bfbecbc94ccd0784f9a9ccb9e80253fe9d2f0cc70320ef18c9ee8280256e733"
+    },
+    "app/api/quote/options/route.ts": {
+      "installedHash": "sha256-9487557adfe6ffad3cbcf95f014330ab20f28230550c4d2570a5eef5ec341f6b",
+      "templateHash": "sha256-9487557adfe6ffad3cbcf95f014330ab20f28230550c4d2570a5eef5ec341f6b"
+    },
+    "app/api/quote/payment/route.ts": {
+      "installedHash": "sha256-646db169f8e63cb51de0f03bc8b5dbedcd151133369c9f0e1760cc5a7957252a",
+      "templateHash": "sha256-646db169f8e63cb51de0f03bc8b5dbedcd151133369c9f0e1760cc5a7957252a"
+    },
+    "app/api/quote/price/route.ts": {
+      "installedHash": "sha256-04dc616db1329c1421d46114cdecbcbdaefae2da73f3a399489945a0da0a5516",
+      "templateHash": "sha256-04dc616db1329c1421d46114cdecbcbdaefae2da73f3a399489945a0da0a5516"
+    },
+    "app/api/quote/settings/route.ts": {
+      "installedHash": "sha256-2b581144c1123c8240788d0ed2354695e8df973b7aa0835b94faf1e788fb5b0b",
+      "templateHash": "sha256-2b581144c1123c8240788d0ed2354695e8df973b7aa0835b94faf1e788fb5b0b"
+    },
+    "app/api/quote/sweep-and-go-webhook/route.ts": {
+      "installedHash": "sha256-eba75ba7e19928814fea59e1ec69257c59a3988ffc33724c1f0ea628bdce63e7",
+      "templateHash": "sha256-eba75ba7e19928814fea59e1ec69257c59a3988ffc33724c1f0ea628bdce63e7"
+    },
+    "app/api/reggie/release/route.ts": {
+      "installedHash": "sha256-144dcc12acec9d5b7e214527b902097848bbd65b15c164d94f994b670569341b",
+      "templateHash": "sha256-144dcc12acec9d5b7e214527b902097848bbd65b15c164d94f994b670569341b"
+    },
+    "app/api/reviews/route.ts": {
+      "installedHash": "sha256-9ba98493ee93c8b3debb70848ea340d08e016cd0c9ec622bfc9d4d7353823263",
+      "templateHash": "sha256-9ba98493ee93c8b3debb70848ea340d08e016cd0c9ec622bfc9d4d7353823263"
+    },
+    "app/pay/[token]/page.tsx": {
+      "installedHash": "sha256-f4f1e0d9e9229d06e0e58abe9dbb62dba924830cf580f10c7c27c6234caaa996",
+      "templateHash": "sha256-f4f1e0d9e9229d06e0e58abe9dbb62dba924830cf580f10c7c27c6234caaa996"
+    },
+    "components/admin-portal/AdminPortal.module.css": {
+      "installedHash": "sha256-0e330186372be01bd61c120549979cb8acc27c2469b6f6814ebaaed7696e4b42",
+      "templateHash": "sha256-0e330186372be01bd61c120549979cb8acc27c2469b6f6814ebaaed7696e4b42"
+    },
+    "components/admin-portal/AdminPortal.tsx": {
+      "installedHash": "sha256-cb68b5d7611fea318c4961eba731758a12b9fdeeff7cdbf6da9925b61747d27c",
+      "templateHash": "sha256-cb68b5d7611fea318c4961eba731758a12b9fdeeff7cdbf6da9925b61747d27c"
+    },
+    "components/admin-portal/domains/analytics.tsx": {
+      "installedHash": "sha256-fd2dfdc375551094f1223d352ee8d433d300300370e7f2657b2948bdfc4071c8",
+      "templateHash": "sha256-fd2dfdc375551094f1223d352ee8d433d300300370e7f2657b2948bdfc4071c8"
+    },
+    "components/admin-portal/domains/content.tsx": {
+      "installedHash": "sha256-652ce3650bc89ca37906a8b4ed4dfa74c78d9836df33b582cb4dd587986f97ab",
+      "templateHash": "sha256-652ce3650bc89ca37906a8b4ed4dfa74c78d9836df33b582cb4dd587986f97ab"
+    },
+    "components/admin-portal/domains/integrations.tsx": {
+      "installedHash": "sha256-973c013eb19ea5b9696aa93a11765ed9eecf2d45ae16faef4e516b94c68db733",
+      "templateHash": "sha256-973c013eb19ea5b9696aa93a11765ed9eecf2d45ae16faef4e516b94c68db733"
+    },
+    "components/admin-portal/domains/media.tsx": {
+      "installedHash": "sha256-b508dbeb2ff2c9ead051ad212561269a157cc4915eb683f993d86c1692f3d183",
+      "templateHash": "sha256-b508dbeb2ff2c9ead051ad212561269a157cc4915eb683f993d86c1692f3d183"
+    },
+    "components/admin-portal/domains/model.tsx": {
+      "installedHash": "sha256-f587b29b6ae5354517cb0719055ce65b74c5672a8ea33128867014d4c1f2eaa2",
+      "templateHash": "sha256-f587b29b6ae5354517cb0719055ce65b74c5672a8ea33128867014d4c1f2eaa2"
+    },
+    "components/admin-portal/domains/quote.tsx": {
+      "installedHash": "sha256-6bc4af10c9d3d976e752872086f38ac1373e08a7314f22ef58010bafa971f618",
+      "templateHash": "sha256-6bc4af10c9d3d976e752872086f38ac1373e08a7314f22ef58010bafa971f618"
+    },
+    "components/admin-portal/domains/seo.tsx": {
+      "installedHash": "sha256-f006eb0b382a6fa98b1bd90913261a9fdf5a9b9c1d6281623fb65ac685baf1ef",
+      "templateHash": "sha256-f006eb0b382a6fa98b1bd90913261a9fdf5a9b9c1d6281623fb65ac685baf1ef"
+    },
+    "components/admin-portal/domains/shell.tsx": {
+      "installedHash": "sha256-228c0a3c8a3ba4a2a820ec01a21c663e588ee6ae0c08672f1b749f351722296d",
+      "templateHash": "sha256-228c0a3c8a3ba4a2a820ec01a21c663e588ee6ae0c08672f1b749f351722296d"
+    },
+    "components/admin-portal/domains/ui.tsx": {
+      "installedHash": "sha256-cccfa070e6e991f2aabfd0cb2fb748b3597bfd461dda18ebc5a063694dbb9444",
+      "templateHash": "sha256-cccfa070e6e991f2aabfd0cb2fb748b3597bfd461dda18ebc5a063694dbb9444"
+    },
+    "components/admin-shell/AdminShell.module.css": {
+      "installedHash": "sha256-760fc260f43295f356705d3ecd578b2033b1bfae4e824947caa4c0801c57135a",
+      "templateHash": "sha256-760fc260f43295f356705d3ecd578b2033b1bfae4e824947caa4c0801c57135a"
+    },
+    "components/admin-shell/AdminShell.tsx": {
+      "installedHash": "sha256-3da5be8eb22e5d0b323bcec2d13f47cf07834632446b4b19e1f4826e046d15d5",
+      "templateHash": "sha256-3da5be8eb22e5d0b323bcec2d13f47cf07834632446b4b19e1f4826e046d15d5"
+    },
+    "components/billing/BillingHomeCard.module.css": {
+      "installedHash": "sha256-ef4e0baa33b8c33a82bde8cbb21353a6bac0d9caa2d034b99d6e757adfbff2fa",
+      "templateHash": "sha256-ef4e0baa33b8c33a82bde8cbb21353a6bac0d9caa2d034b99d6e757adfbff2fa"
+    },
+    "components/billing/BillingHomeCard.tsx": {
+      "installedHash": "sha256-7ab0988334b50e924eca2b900765fba79ee8b191e5c5add67913e4a57c4b71f2",
+      "templateHash": "sha256-7ab0988334b50e924eca2b900765fba79ee8b191e5c5add67913e4a57c4b71f2"
+    },
+    "components/billing/BillingWorkspace.module.css": {
+      "installedHash": "sha256-de197893f2a99284da3b458ce34473c596f62ee605531eae0fcdf5bc4d67c742",
+      "templateHash": "sha256-de197893f2a99284da3b458ce34473c596f62ee605531eae0fcdf5bc4d67c742"
+    },
+    "components/billing/BillingWorkspace.tsx": {
+      "installedHash": "sha256-e37632f24599ee98e56668d1aa91aa605d4dec208c90794e1ec71de8ee6b67a1",
+      "templateHash": "sha256-e37632f24599ee98e56668d1aa91aa605d4dec208c90794e1ec71de8ee6b67a1"
+    },
+    "components/billing/PaymentPage.module.css": {
+      "installedHash": "sha256-44313c05b2f65645b89678a2c4aa56d286121940a66e41ce3ac7e4403ff99f02",
+      "templateHash": "sha256-44313c05b2f65645b89678a2c4aa56d286121940a66e41ce3ac7e4403ff99f02"
+    },
+    "components/billing/PaymentPage.tsx": {
+      "installedHash": "sha256-c3a97b882312011f87d093d03e6cb5d3b3790da7b52a9f9a2d438ee16b522975",
+      "templateHash": "sha256-c3a97b882312011f87d093d03e6cb5d3b3790da7b52a9f9a2d438ee16b522975"
+    },
+    "components/customer-dashboard/CustomerDashboard.module.css": {
+      "installedHash": "sha256-cbaad3c18a5a81a56ee0948e4efb852b461a0596130fe02c29c5988115c481c4",
+      "templateHash": "sha256-cbaad3c18a5a81a56ee0948e4efb852b461a0596130fe02c29c5988115c481c4"
+    },
+    "components/customer-dashboard/CustomerDashboard.tsx": {
+      "installedHash": "sha256-7a5185db163f06e1b35b096d785804eeea68fabfdcf8ca904c498b2a35c2e9e8",
+      "templateHash": "sha256-7a5185db163f06e1b35b096d785804eeea68fabfdcf8ca904c498b2a35c2e9e8"
+    },
+    "components/internal-support/InternalSupport.module.css": {
+      "installedHash": "sha256-ebaab1d75ff65b0ef23b3bba8687a22d749d081ac6a19746304dde2aadbc3a57",
+      "templateHash": "sha256-ebaab1d75ff65b0ef23b3bba8687a22d749d081ac6a19746304dde2aadbc3a57"
+    },
+    "components/internal-support/InternalSupport.tsx": {
+      "installedHash": "sha256-5d52b4868677929ef5dddf2bdf137eff76ad12b207bf870bb764beee4bb15296",
+      "templateHash": "sha256-5d52b4868677929ef5dddf2bdf137eff76ad12b207bf870bb764beee4bb15296"
+    },
+    "components/landing-journey/LandingJourney.tsx": {
+      "installedHash": "sha256-e0af3197fc793384def57d1907dbc9a976700c6b899e364d663b005e39f8500d",
+      "templateHash": "sha256-e0af3197fc793384def57d1907dbc9a976700c6b899e364d663b005e39f8500d"
+    },
+    "components/nurture/NurtureWorkspace.module.css": {
+      "installedHash": "sha256-363ff61f212bfdc19488860274d1170078f6c52e934c213d11733db16dd12c6c",
+      "templateHash": "sha256-363ff61f212bfdc19488860274d1170078f6c52e934c213d11733db16dd12c6c"
+    },
+    "components/nurture/NurtureWorkspace.tsx": {
+      "installedHash": "sha256-6e81fe30364794aa17b7b78a6cc6fc0277d4979a30b8d20dcf157438e824f2c8",
+      "templateHash": "sha256-6e81fe30364794aa17b7b78a6cc6fc0277d4979a30b8d20dcf157438e824f2c8"
+    },
+    "components/reggie-dashboard/ReggieDashboard.module.css": {
+      "installedHash": "sha256-de7cf558d918c7dc45565c661212190b7642469b1ee5f60c43387663966d5476",
+      "templateHash": "sha256-de7cf558d918c7dc45565c661212190b7642469b1ee5f60c43387663966d5476"
+    },
+    "components/reggie-dashboard/ReggieDashboard.tsx": {
+      "installedHash": "sha256-f8c7d452675d5b42f15b894e0e4b62b51766f578617bc65e4b78f405fe6b8147",
+      "templateHash": "sha256-f8c7d452675d5b42f15b894e0e4b62b51766f578617bc65e4b78f405fe6b8147"
+    },
+    "components/reggie-feedback/ReggieFeedback.module.css": {
+      "installedHash": "sha256-df16552c56e88f492c2c70a92bd4961b8fb564bbd80d1b6ba9d83cb76d0f60c6",
+      "templateHash": "sha256-df16552c56e88f492c2c70a92bd4961b8fb564bbd80d1b6ba9d83cb76d0f60c6"
+    },
+    "components/reggie-feedback/ReggieFeedback.tsx": {
+      "installedHash": "sha256-8115a7be497431c968eff15225c3d4741dd71b14bb38b548165e31c33bba73c8",
+      "templateHash": "sha256-8115a7be497431c968eff15225c3d4741dd71b14bb38b548165e31c33bba73c8"
+    },
+    "components/reggie-lens/ReggieLensWorkspace.module.css": {
+      "installedHash": "sha256-9a52a5237e13b4b30f23bb0793637486e85ea9998d635846e8c4e9190a8ee048",
+      "templateHash": "sha256-9a52a5237e13b4b30f23bb0793637486e85ea9998d635846e8c4e9190a8ee048"
+    },
+    "components/reggie-lens/ReggieLensWorkspace.tsx": {
+      "installedHash": "sha256-5b86d3f24ee89a22cc97e7168404e426b4c2aabab0fbf8d302aec5bcddf30752",
+      "templateHash": "sha256-5b86d3f24ee89a22cc97e7168404e426b4c2aabab0fbf8d302aec5bcddf30752"
+    },
+    "components/reggie-mission-queue/ReggieMissionQueue.module.css": {
+      "installedHash": "sha256-bd3de02b40907bc0f79a8c28b68d633b1c8d8f50c2e9b259bff1ef71a5552481",
+      "templateHash": "sha256-bd3de02b40907bc0f79a8c28b68d633b1c8d8f50c2e9b259bff1ef71a5552481"
+    },
+    "components/reggie-mission-queue/ReggieMissionQueue.tsx": {
+      "installedHash": "sha256-17495e9845cb1932b82293778962c60d6a7b21ad4d2940916aac73cb76df37cf",
+      "templateHash": "sha256-17495e9845cb1932b82293778962c60d6a7b21ad4d2940916aac73cb76df37cf"
+    },
+    "components/reggie-progress/ReggieProgress.module.css": {
+      "installedHash": "sha256-7b06d2f4a973538c23ba327bf2084f24fa8f7be645fec02651a9c88235017b9f",
+      "templateHash": "sha256-7b06d2f4a973538c23ba327bf2084f24fa8f7be645fec02651a9c88235017b9f"
+    },
+    "components/reggie-progress/ReggieProgress.tsx": {
+      "installedHash": "sha256-b10177e13243f81034d26686cbaca151b4cbe23b1107f7534cee692f77ed667d",
+      "templateHash": "sha256-b10177e13243f81034d26686cbaca151b4cbe23b1107f7534cee692f77ed667d"
+    },
+    "components/review-slider/GoogleReviewSlider.module.css": {
+      "installedHash": "sha256-ba5d04d0d4572d366bb8a18ad864e3d5e96f438c1192f502341f613b1b2f9d7c",
+      "templateHash": "sha256-ba5d04d0d4572d366bb8a18ad864e3d5e96f438c1192f502341f613b1b2f9d7c"
+    },
+    "components/review-slider/GoogleReviewSlider.tsx": {
+      "installedHash": "sha256-43d7d1d3921ff57c188bd85978472ba47886b75abb7675c65339089b788696a9",
+      "templateHash": "sha256-43d7d1d3921ff57c188bd85978472ba47886b75abb7675c65339089b788696a9"
+    },
+    "components/review-slider/ReviewSliderAdmin.module.css": {
+      "installedHash": "sha256-b742392b29e81975022fcbb2c9b38d88475b261c0301cef177c95957ce05b60a",
+      "templateHash": "sha256-b742392b29e81975022fcbb2c9b38d88475b261c0301cef177c95957ce05b60a"
+    },
+    "components/review-slider/ReviewSliderAdmin.tsx": {
+      "installedHash": "sha256-904abd2571a7c5fa75de8de75d26554ad1303031bc66e9e5330709db848dfc8b",
+      "templateHash": "sha256-904abd2571a7c5fa75de8de75d26554ad1303031bc66e9e5330709db848dfc8b"
+    },
+    "generated/reggie-deployment-identity.ts": {
+      "installedHash": "sha256-c4f7b1907ca3ce95a595faf95636a1819b13566378a0336a3cae7ba5271f23c6",
+      "templateHash": "sha256-c4f7b1907ca3ce95a595faf95636a1819b13566378a0336a3cae7ba5271f23c6"
+    },
+    "generated/reggie-page-registry.ts": {
+      "installedHash": "sha256-f75312a376e23d5a89c9e9610906ac1d4c4abe4a1968bec7a6c528a43eb8383a",
+      "templateHash": "sha256-a69b3a1364e0a67c357db371540eb69b01fbb2a7ecc134e1e30213b2cb8eaac0"
+    },
+    "generated/reggie-source-map.ts": {
+      "installedHash": "sha256-003ff0c44b1eeeda545dec94e3ab919b845515c41cbe728c481ef03f54758581",
+      "templateHash": "sha256-96aca074eaa235002711d6cd5a24960d88918923008d9cb553029eea403d9a9a"
+    },
+    "lib/admin-api-client.ts": {
+      "installedHash": "sha256-56e9ba06d0e5b6b37d4d8df3dd2ee547e9ce6b5e46efc49f3678a40ffe2346a0",
+      "templateHash": "sha256-56e9ba06d0e5b6b37d4d8df3dd2ee547e9ce6b5e46efc49f3678a40ffe2346a0"
+    },
+    "lib/admin-auth-client.ts": {
+      "installedHash": "sha256-3e67b7f76f79472fc785f35fafa77bb1886193fdb118f46c25be50b5fece232d",
+      "templateHash": "sha256-3e67b7f76f79472fc785f35fafa77bb1886193fdb118f46c25be50b5fece232d"
+    },
+    "lib/admin-auth.ts": {
+      "installedHash": "sha256-58c9cc74a1f74d72074a5120545742ccb42a94b60c008b4b2f1380feec45e25f",
+      "templateHash": "sha256-58c9cc74a1f74d72074a5120545742ccb42a94b60c008b4b2f1380feec45e25f"
+    },
+    "lib/admin-password-kdf.ts": {
+      "installedHash": "sha256-449163d3f0d54c46c0be99ae71300393ec576491d4770aa1bcd6ea0de293faf4",
+      "templateHash": "sha256-449163d3f0d54c46c0be99ae71300393ec576491d4770aa1bcd6ea0de293faf4"
+    },
+    "lib/admin-platform.ts": {
+      "installedHash": "sha256-1fa617004051fd847f9be6ad02b5897cafbb0539350cb4235bdd7c245a3bc3cc",
+      "templateHash": "sha256-1fa617004051fd847f9be6ad02b5897cafbb0539350cb4235bdd7c245a3bc3cc"
+    },
+    "lib/admin-revision.ts": {
+      "installedHash": "sha256-ae80989a8b7d2351327bd6f5f49ff1922669159578744b0f67f123663519d591",
+      "templateHash": "sha256-ae80989a8b7d2351327bd6f5f49ff1922669159578744b0f67f123663519d591"
+    },
+    "lib/billing-normalization.ts": {
+      "installedHash": "sha256-7e4a5dc594e757093b13afe959fa65e5496aa76ae667a8f0e4034cbfa256121d",
+      "templateHash": "sha256-7e4a5dc594e757093b13afe959fa65e5496aa76ae667a8f0e4034cbfa256121d"
+    },
+    "lib/billing-security.ts": {
+      "installedHash": "sha256-e1463d10f861c0d5f4c641d00f31f37d3bbee754c9376c1bcaf8311278b96a50",
+      "templateHash": "sha256-e1463d10f861c0d5f4c641d00f31f37d3bbee754c9376c1bcaf8311278b96a50"
+    },
+    "lib/billing-service.ts": {
+      "installedHash": "sha256-6a58e932e78595c285dbd4258af08e9334eaf3f9b3d6e4a608dbc2daf17d8cd9",
+      "templateHash": "sha256-6a58e932e78595c285dbd4258af08e9334eaf3f9b3d6e4a608dbc2daf17d8cd9"
+    },
+    "lib/billing-store.ts": {
+      "installedHash": "sha256-55dddef65afd9466235cbcb04e8131c9a55100bf1f26570c41da1bfa63188eb0",
+      "templateHash": "sha256-55dddef65afd9466235cbcb04e8131c9a55100bf1f26570c41da1bfa63188eb0"
+    },
+    "lib/cloudinary-config.ts": {
+      "installedHash": "sha256-654f22fd8f036ca91607b2f3f3a336e85eb2836a6e69512fe14e5144794207e8",
+      "templateHash": "sha256-654f22fd8f036ca91607b2f3f3a336e85eb2836a6e69512fe14e5144794207e8"
+    },
+    "lib/cloudinary.ts": {
+      "installedHash": "sha256-00c46e08c604e89f41bc73f2bdefd384a2cc15d11322e21ba49b9a0fe92a8dca",
+      "templateHash": "sha256-00c46e08c604e89f41bc73f2bdefd384a2cc15d11322e21ba49b9a0fe92a8dca"
+    },
+    "lib/dashboard-data.ts": {
+      "installedHash": "sha256-c7b63d32aac50224cd3534e662d6d1deaead3fef1b01345962d971121d6bbadb",
+      "templateHash": "sha256-c7b63d32aac50224cd3534e662d6d1deaead3fef1b01345962d971121d6bbadb"
+    },
+    "lib/dashboard-models.ts": {
+      "installedHash": "sha256-d35ce810962cf158229a5712ed03b10053317e305be2604161cf591db414509a",
+      "templateHash": "sha256-d35ce810962cf158229a5712ed03b10053317e305be2604161cf591db414509a"
+    },
+    "lib/dashboard-site-profile.ts": {
+      "installedHash": "sha256-72724e72e2f59dbe2fc20d8d4296c529ea98a11c036b5e2ec50a91f1bc50a7a0",
+      "templateHash": "sha256-72724e72e2f59dbe2fc20d8d4296c529ea98a11c036b5e2ec50a91f1bc50a7a0"
+    },
+    "lib/google-reporting.ts": {
+      "installedHash": "sha256-b9ddba5d259b5299595b8f19db4e436acb37fa44ed3ba9eaf1540e91751a67d0",
+      "templateHash": "sha256-b9ddba5d259b5299595b8f19db4e436acb37fa44ed3ba9eaf1540e91751a67d0"
+    },
+    "lib/google-review-types.ts": {
+      "installedHash": "sha256-52cb6a8ac8b05d5aec703e3f4a61a50af5d75921ed94d7ea4933b38edc0a7833",
+      "templateHash": "sha256-52cb6a8ac8b05d5aec703e3f4a61a50af5d75921ed94d7ea4933b38edc0a7833"
+    },
+    "lib/google-reviews.ts": {
+      "installedHash": "sha256-64ca17380899204c0562fa78496cc939c03301cd0818435f0f8a64a7c54c0fbc",
+      "templateHash": "sha256-64ca17380899204c0562fa78496cc939c03301cd0818435f0f8a64a7c54c0fbc"
+    },
+    "lib/landing-attribution.ts": {
+      "installedHash": "sha256-70bdb2e49572ddcebcd278e14df4c450283d4b600e75fdf906edbf62f74d8a1a",
+      "templateHash": "sha256-70bdb2e49572ddcebcd278e14df4c450283d4b600e75fdf906edbf62f74d8a1a"
+    },
+    "lib/landing-journeys.ts": {
+      "installedHash": "sha256-d88542597af3656668feaf1422dc6d41a9707b944bf4c636d685bc4bd0c212fb",
+      "templateHash": "sha256-d88542597af3656668feaf1422dc6d41a9707b944bf4c636d685bc4bd0c212fb"
+    },
+    "lib/nurture-config.ts": {
+      "installedHash": "sha256-10a0714e237907926bbcbef0d1fecb1cb37d99c142d11d621a170fa31cc9e4f0",
+      "templateHash": "sha256-10a0714e237907926bbcbef0d1fecb1cb37d99c142d11d621a170fa31cc9e4f0"
+    },
+    "lib/nurture.ts": {
+      "installedHash": "sha256-12a245143f68c973a113b2b9a0014def49de94ca36cb26d3438b82997a32b52a",
+      "templateHash": "sha256-12a245143f68c973a113b2b9a0014def49de94ca36cb26d3438b82997a32b52a"
+    },
+    "lib/openphone-client.ts": {
+      "installedHash": "sha256-8ccb42137dc70d27597d72ee2dae71ac2265f6020672551b225fd19e64877932",
+      "templateHash": "sha256-8ccb42137dc70d27597d72ee2dae71ac2265f6020672551b225fd19e64877932"
+    },
+    "lib/owner-email-access.ts": {
+      "installedHash": "sha256-172dce6fe6f74c4b6a6e21da5dfdd1cf5154d11b099bc212adf6c410ff69f66e",
+      "templateHash": "sha256-172dce6fe6f74c4b6a6e21da5dfdd1cf5154d11b099bc212adf6c410ff69f66e"
+    },
+    "lib/page-registry.ts": {
+      "installedHash": "sha256-b058ab787bbba5f1880129f666eb5f31205a548d629040eb9ba960cb47fccbcf",
+      "templateHash": "sha256-b058ab787bbba5f1880129f666eb5f31205a548d629040eb9ba960cb47fccbcf"
+    },
+    "lib/quote-tool.ts": {
+      "installedHash": "sha256-3ffb4c67e7a397c9d3872adae7e652b57cb6ed51bf3190e1a035c8421ad476d6",
+      "templateHash": "sha256-3ffb4c67e7a397c9d3872adae7e652b57cb6ed51bf3190e1a035c8421ad476d6"
+    },
+    "lib/reggie-connection.ts": {
+      "installedHash": "sha256-ba8586d8d99f7ef7eeb33aca04d409101825b999da0910076cc92a7084efa984",
+      "templateHash": "sha256-ba8586d8d99f7ef7eeb33aca04d409101825b999da0910076cc92a7084efa984"
+    },
+    "lib/reggie-lens.ts": {
+      "installedHash": "sha256-10da699446cb3edaa48bd50bf5855d2b6440cdc31ef820de51e74f40ac22ba51",
+      "templateHash": "sha256-10da699446cb3edaa48bd50bf5855d2b6440cdc31ef820de51e74f40ac22ba51"
+    },
+    "lib/reggie-mission-state.d.mts": {
+      "installedHash": "sha256-f7a900eeacee7d74a67a8363eb051c4be974269fd0ff037f0218eae73e0656c8",
+      "templateHash": "sha256-f7a900eeacee7d74a67a8363eb051c4be974269fd0ff037f0218eae73e0656c8"
+    },
+    "lib/reggie-section-recipes.ts": {
+      "installedHash": "sha256-653427b17058853d60803ee75e4abd162120f54071d8a648a9a0f04494c84760",
+      "templateHash": "sha256-653427b17058853d60803ee75e4abd162120f54071d8a648a9a0f04494c84760"
+    },
+    "lib/site-health.ts": {
+      "installedHash": "sha256-20c3621e8e247889c05d6cf7bc3969305025a31147c3939c2777327c85855d93",
+      "templateHash": "sha256-20c3621e8e247889c05d6cf7bc3969305025a31147c3939c2777327c85855d93"
+    },
+    "lib/sweep-and-go-billing.ts": {
+      "installedHash": "sha256-e16adb7e3fb10a93147b41f294e60947474b100a20be0ffc72ae20758419392c",
+      "templateHash": "sha256-e16adb7e3fb10a93147b41f294e60947474b100a20be0ffc72ae20758419392c"
+    },
+    "lib/sweep-and-go-client.ts": {
+      "installedHash": "sha256-31dc9cff2fe5cc288b2574dc1899ece9137fbf37065bbdb7fec1b1e538036227",
+      "templateHash": "sha256-31dc9cff2fe5cc288b2574dc1899ece9137fbf37065bbdb7fec1b1e538036227"
+    },
+    "lib/sweep-and-go-integration.ts": {
+      "installedHash": "sha256-87047b2b247b8338d3e92ec375697edda13f25acfa4158a5ee4b25143852d889",
+      "templateHash": "sha256-87047b2b247b8338d3e92ec375697edda13f25acfa4158a5ee4b25143852d889"
+    },
+    "lib/sweep-and-go-payment.ts": {
+      "installedHash": "sha256-3597cd15fa6ceb17dc0d4f8933f0a2b3499acda7e359478d43e0b11a7a5ba657",
+      "templateHash": "sha256-3597cd15fa6ceb17dc0d4f8933f0a2b3499acda7e359478d43e0b11a7a5ba657"
+    },
+    "lib/sweep-and-go-transport.ts": {
+      "installedHash": "sha256-2a5010b51cda655888c68d87e9e2ea264c42d25fc5eb20a8ea2f4fddb08f5d56",
+      "templateHash": "sha256-2a5010b51cda655888c68d87e9e2ea264c42d25fc5eb20a8ea2f4fddb08f5d56"
+    },
+    "lib/warren-reporting.ts": {
+      "installedHash": "sha256-0b2088639b1d699b955e11304437bdc839a0da203a15163b662c67eaaa918006",
+      "templateHash": "sha256-0b2088639b1d699b955e11304437bdc839a0da203a15163b662c67eaaa918006"
+    },
+    "types/tweetnacl-sealedbox-js.d.ts": {
+      "installedHash": "sha256-49699d8912a5a69f039cf6231075827c2ff593896919d666bbb44b9e77675309",
+      "templateHash": "sha256-49699d8912a5a69f039cf6231075827c2ff593896919d666bbb44b9e77675309"
+    },
+    "lib/reggie-mission-state.mjs": {
+      "installedHash": "sha256-0dbcd7705590d6b9d1b67f658d270901bf549144dfa1e507315fccf7830300b7",
+      "templateHash": "sha256-0dbcd7705590d6b9d1b67f658d270901bf549144dfa1e507315fccf7830300b7"
+    }
+  }
+}

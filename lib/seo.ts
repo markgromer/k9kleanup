@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 
-// The scooper.site address is a client-review draft, not the final business domain.
-// At the authorized domain launch, change these two values together.
-export const SITE_ORIGIN = 'https://k9kleanup.scooper.site';
-export const SITE_INDEXABLE = false;
+// Production domain and indexing are enabled together for the live release.
+export const SITE_ORIGIN = 'https://k9kleanup.co';
+export const SITE_INDEXABLE = true;
 export const pageSEO: Record<string, { title: string; description: string }> = {
   '/': {
     title: 'Dog Poop Removal in St. Cloud, MN',

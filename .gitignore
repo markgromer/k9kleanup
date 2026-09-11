@@ -37,3 +37,14 @@ next-env.d.ts
 /outputs/
 /work/
 *.tsbuildinfo
+
+# Reggie local credentials and QA output
+/.reggie/connection.json
+/.reggie/pending-render-connection.json
+/.reggie/admin-storage-key
+/.reggie/admin-password
+/.reggie/admin-password.pending
+/.reggie/backups/
+/data/reggie/
+/.playwright-cli/
+/tmp-reggie-*

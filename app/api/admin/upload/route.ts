@@ -1,5 +1,6 @@
 import { env } from 'cloudflare:workers';
-import { getAuthorizedAdmin } from '@/lib/admin-auth';
+import { type NextRequest } from 'next/server';
+import { checkAdminAuth, getAdminRole, unauthorizedResponse } from '@/lib/admin-auth';
 
 const imageTypes: Record<string, string> = {
   'image/jpeg': 'jpg',
@@ -7,9 +8,8 @@ const imageTypes: Record<string, string> = {
   'image/webp': 'webp',
 };
 
-export async function POST(request: Request) {
-  const user = await getAuthorizedAdmin();
-  if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 });
+export async function POST(request: NextRequest) {
+  if (!(await checkAdminAuth(request))) return unauthorizedResponse();
   if (!env.DB || !env.FILES) return Response.json({ error: 'Storage unavailable' }, { status: 503 });
 
   const formData = await request.formData();
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   const key = `hero-${crypto.randomUUID()}.${imageTypes[file.type]}`;
   await env.FILES.put(key, file.stream(), {
     httpMetadata: { contentType: file.type },
-    customMetadata: { uploadedBy: user.email },
+    customMetadata: { uploadedBy: (await getAdminRole(request)) ?? 'admin' },
   });
   await env.DB.prepare(
     'INSERT INTO site_settings (key, value, updated_at) VALUES (?, ?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at',

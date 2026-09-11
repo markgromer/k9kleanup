@@ -1,0 +1,4 @@
+# Reggie generated artifacts
+src/generated/reggie-*.ts text eol=lf
+generated/reggie-*.ts text eol=lf
+functions/_generated/reggie-*.ts text eol=lf

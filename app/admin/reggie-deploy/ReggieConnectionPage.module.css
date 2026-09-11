@@ -1,0 +1,72 @@
+.page {
+  --admin-canvas: #f4f7fb;
+  --admin-surface: #ffffff;
+  --admin-text: #172033;
+  --admin-muted: #526077;
+  --admin-border: #b9c7dc;
+  --admin-primary: #2457c5;
+  --admin-primary-hover: #17449f;
+  --admin-focus: #f59e0b;
+  min-height: 100vh;
+  padding: 48px 20px;
+  isolation: isolate;
+  background: var(--admin-canvas);
+  color: var(--admin-text);
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+}
+
+.card {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--admin-surface);
+  box-shadow: 0 18px 50px rgb(23 32 51 / 0.08);
+}
+
+.eyebrow { margin: 0; color: #1d4db0; font-weight: 800; letter-spacing: 0.08em; }
+.title { margin: 8px 0; font-size: clamp(1.75rem, 4vw, 2rem); line-height: 1.15; }
+.sectionTitle { margin: 18px 0 0; font-size: 1.1rem; line-height: 1.2; }
+.copy, .note { color: var(--admin-muted); line-height: 1.6; }
+.note code { font-weight: 800; color: var(--admin-text); }
+.form { display: grid; gap: 14px; margin-top: 20px; }
+
+.input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #8ea1bd;
+  border-radius: 6px;
+  outline: none;
+  background: #ffffff !important;
+  color: var(--admin-text) !important;
+  font: inherit;
+  font-size: 16px;
+}
+
+.button {
+  min-height: 50px;
+  margin-top: 20px;
+  padding: 0 22px;
+  border: 1px solid var(--admin-primary);
+  border-radius: 6px;
+  background: var(--admin-primary) !important;
+  color: #ffffff !important;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) { border-color: var(--admin-primary-hover); background: var(--admin-primary-hover) !important; }
+.button:disabled { cursor: not-allowed; border-color: #aeb9ca; background: #aeb9ca !important; color: #f8fafc !important; }
+.input:focus-visible, .button:focus-visible { outline: 3px solid var(--admin-focus); outline-offset: 3px; }
+.status, .warning, .latest { margin-top: 16px; padding: 14px; border-radius: 6px; line-height: 1.5; }
+.status { border: 1px solid #8ed3ad; background: #ecfdf3; color: #14532d; font-weight: 800; }
+.warning { border: 1px solid #f2b36d; background: #fff7ed; color: #8a320b; font-weight: 800; }
+.latest { border: 1px solid #b9d4f5; background: #eff6ff; color: var(--admin-text); }
+.error { color: #a61b1b; font-weight: 800; }
+.success { color: #14532d; font-weight: 800; }
+
+@media (max-width: 600px) { .page { padding: 24px 12px; } .card { padding: 20px; } }

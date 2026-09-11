@@ -1,0 +1,131 @@
+name: Reggie quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reggie-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lens:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ADMIN_PASSWORD: reggie-ci-${{ github.run_id }}-${{ github.run_attempt }}
+      REGGIE_QA_BASE_URL: http://127.0.0.1:3101
+      NODE_OPTIONS: --max-old-space-size=4096
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compare lint with exact trusted base
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+        run: |
+          set -euo pipefail
+          candidate_commit=$(git rev-parse HEAD)
+          base_commit="$PR_BASE_SHA"
+          if [ -z "$base_commit" ]; then base_commit=$(git rev-parse HEAD^ 2>/dev/null || git rev-parse HEAD); fi
+          printf '%s' "$base_commit" | grep -Eq '^[a-f0-9]{40}$'
+          printf '%s' "$candidate_commit" | grep -Eq '^[a-f0-9]{40}$'
+          baseline_dir="$RUNNER_TEMP/reggie-lint-baseline"
+          git worktree add --detach "$baseline_dir" "$base_commit"
+          (
+            cd "$baseline_dir"
+            npm ci
+            node "$GITHUB_WORKSPACE/scripts/reggie-lint-compat.mjs" --defer-errors --output "$RUNNER_TEMP/reggie-lint-baseline.json"
+          )
+          node scripts/reggie-lint-compat.mjs --defer-errors --output "$RUNNER_TEMP/reggie-lint-candidate.json"
+          git diff --name-only "$base_commit" "$candidate_commit" > "$RUNNER_TEMP/reggie-lint-changed-files.txt"
+          node scripts/reggie-lint-baseline.mjs \
+            --baseline "$RUNNER_TEMP/reggie-lint-baseline.json" \
+            --candidate "$RUNNER_TEMP/reggie-lint-candidate.json" \
+            --changed-files "$RUNNER_TEMP/reggie-lint-changed-files.txt" \
+            --output "$RUNNER_TEMP/reggie-lint-comparison.json"
+
+      - name: Upload lint comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reggie-lint-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/reggie-lint-baseline.json
+            ${{ runner.temp }}/reggie-lint-candidate.json
+            ${{ runner.temp }}/reggie-lint-changed-files.txt
+            ${{ runner.temp }}/reggie-lint-comparison.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Verify source and Reggie contracts
+        run: |
+          set -euo pipefail
+          npm run reggie:doctor
+          npm run reggie:workflow-qa
+          npm run build
+
+      - name: Select compatible browser
+        run: |
+          set -euo pipefail
+          for browser in /usr/bin/google-chrome /usr/bin/google-chrome-stable /usr/bin/chromium /usr/bin/chromium-browser; do
+            if [ -x "$browser" ]; then
+              echo "REGGIE_QA_BROWSER_EXECUTABLE=$browser" >> "$GITHUB_ENV"
+              echo "Using the GitHub runner browser at $browser."
+              exit 0
+            fi
+          done
+          npx playwright install chromium
+
+      - name: Exercise Google reporting sync
+        run: |
+          if npm run | grep -qE '^  reggie:google-qa'; then
+            npm run reggie:google-qa
+          fi
+
+      - name: Exercise Reggie Lens
+        run: |
+          set -euo pipefail
+          platform=$(node -e "const fs=require('fs'); try { process.stdout.write(JSON.parse(fs.readFileSync('.reggie/manifest.json','utf8')).platform || '') } catch {}")
+          uses_vinext=$(node -e "const pkg=require('./package.json'); process.stdout.write(String(Boolean(pkg.dependencies?.vinext || pkg.devDependencies?.vinext)))")
+          if [ "$platform" = "pages" ]; then
+            node scripts/reggie-static-server.mjs --port 3101 --directory out > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
+          elif [ "$uses_vinext" = "true" ]; then
+            # Vinext's generated Worker imports cloudflare: modules and must run in
+            # workerd. Pin the QA runtime centrally so an older site lockfile cannot
+            # lag behind the site's compatibility date.
+            npx --yes wrangler@4.121.0 dev --port 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
+          elif npm run | grep -qE '^  start'; then
+            npm run start -- --port 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
+          else
+            npx --no-install next start -p 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
+          fi
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          npm run reggie:lens-qa
+
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reggie-quality-${{ github.run_id }}
+          path: |
+            tmp-reggie-lens-qa/
+            ${{ runner.temp }}/reggie-site.log
+          if-no-files-found: ignore
+          retention-days: 14
