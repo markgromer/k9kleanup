@@ -53,7 +53,7 @@ export default async function PublicLayout({
       </div>
       <SiteNav />
       <main id="main">{children}</main>
-      <footer className="brand-rule bg-[#121110] py-16 text-white">
+      <footer className="brand-rule bg-black py-16 text-white">
         <div className="site-container">
           <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
             <div>

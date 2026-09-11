@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <>
       <section className="site-container py-8 md:py-12">
-        <div className="grid overflow-hidden rounded-[1rem] bg-[#121110] text-white lg:min-h-[650px] lg:grid-cols-[1fr_1.05fr]">
+        <div className="grid overflow-hidden rounded-[1rem] bg-black text-white lg:min-h-[650px] lg:grid-cols-[1fr_1.05fr]">
           <div className="flex flex-col items-start justify-center px-7 py-12 sm:px-12 lg:py-16">
             <p className="eyebrow !text-[#FFB600]">
               Veteran-owned. Detail-obsessed.

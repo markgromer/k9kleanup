@@ -38,7 +38,7 @@ export function SiteNav() {
     ['FAQs', '/faq'],
   ];
   return (
-    <header className="border-b border-white/15 bg-[#121110] text-white">
+    <header className="border-b border-white/15 bg-black text-white">
       <div className="site-container flex min-h-28 items-center justify-between gap-4">
         <Brand />
         <Link

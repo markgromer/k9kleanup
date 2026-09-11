@@ -34,19 +34,19 @@
 
 :root {
   --background: #faf8f3;
-  --foreground: #121110;
+  --foreground: #000000;
   --card: #ffffff;
-  --card-foreground: #121110;
+  --card-foreground: #000000;
   --popover: #ffffff;
-  --popover-foreground: #121110;
-  --primary: #121110;
+  --popover-foreground: #000000;
+  --primary: #000000;
   --primary-foreground: #ffffff;
   --secondary: #fff0c7;
-  --secondary-foreground: #121110;
+  --secondary-foreground: #000000;
   --muted: #f2eee5;
   --muted-foreground: #625e57;
   --accent: #FFB600;
-  --accent-foreground: #121110;
+  --accent-foreground: #000000;
   --destructive: #b7332e;
   --border: #e0dcd3;
   --input: #cbc5b8;
@@ -57,20 +57,20 @@
 }
 
 .dark {
-  --background: #121110;
+  --background: #000000;
   --foreground: #f8f5ed;
   --card: #24221f;
   --card-foreground: #f8f5ed;
   --popover: #24221f;
   --popover-foreground: #f8f5ed;
   --primary: #FFB600;
-  --primary-foreground: #121110;
+  --primary-foreground: #000000;
   --secondary: #343029;
   --secondary-foreground: #ffffff;
   --muted: #24221f;
   --muted-foreground: #cbc5b8;
   --accent: #FFB600;
-  --accent-foreground: #121110;
+  --accent-foreground: #000000;
   --destructive: #e07168;
   --border: #454038;
   --input: #514a40;
@@ -105,10 +105,10 @@ section[id] { scroll-margin-top: 1.5rem; }
   header [aria-label="K9 Kleanup home"] img { height: 3.25rem; }
 }
 
-::selection { background: #FFB600; color: #121110; }
+::selection { background: #FFB600; color: #000000; }
 
 @font-face { font-family: 'Nunito'; font-style: normal; font-weight: 200 900; font-display: swap; src: url('/fonts/nunito.woff2') format('woff2'); }
 .font-heading { font-weight: 850; }
-.brand-button { background: #FFB600; color: #121110; font-weight: 800; border-radius: .65rem; }
+.brand-button { background: #FFB600; color: #000000; font-weight: 800; border-radius: .65rem; }
 .brand-button:hover { background: #efaa00; }
 .brand-rule { border-top: 4px solid #FFB600; }
