@@ -682,6 +682,14 @@ export const reggieSourceMap = [
   },
   {
     "type": "text",
+    "value": "; requiredFields?: Record",
+    "filePath": "components/quote-form.tsx",
+    "line": 10,
+    "column": 190,
+    "symbol": "quote-form"
+  },
+  {
+    "type": "text",
     "value": "Your quote is on its way.",
     "filePath": "components/quote-form.tsx",
     "line": 58,
@@ -730,25 +738,65 @@ export const reggieSourceMap = [
   },
   {
     "type": "text",
-    "value": "Sending…",
+    "value": "Start service with this quote",
     "filePath": "components/quote-form.tsx",
     "line": 59,
-    "column": 1134,
+    "column": 964,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
-    "value": "Change my details",
+    "value": "Change quote details",
     "filePath": "components/quote-form.tsx",
     "line": 59,
-    "column": 1318,
+    "column": 1130,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "One last step",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 229,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Where should we send your service details?",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 300,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Your instant quote is already set. These details are only needed to create your Sweep & Go service request.",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 413,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Sending…",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 1260,
+    "symbol": "QuoteForm"
+  },
+  {
+    "type": "text",
+    "value": "Back to quote",
+    "filePath": "components/quote-form.tsx",
+    "line": 60,
+    "column": 1417,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
     "value": "Instant Sweep & Go quote",
     "filePath": "components/quote-form.tsx",
-    "line": 60,
+    "line": 61,
     "column": 179,
     "symbol": "QuoteForm"
   },
@@ -756,7 +804,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Let’s check your yard.",
     "filePath": "components/quote-form.tsx",
-    "line": 60,
+    "line": 61,
     "column": 265,
     "symbol": "QuoteForm"
   },
@@ -764,7 +812,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Enter your ZIP code to see live K9 Kleanup service options and pricing.",
     "filePath": "components/quote-form.tsx",
-    "line": 60,
+    "line": 61,
     "column": 350,
     "symbol": "QuoteForm"
   },
@@ -772,7 +820,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "ZIP code",
     "filePath": "components/quote-form.tsx",
-    "line": 60,
+    "line": 61,
     "column": 484,
     "symbol": "QuoteForm"
   },
@@ -780,7 +828,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Checking…",
     "filePath": "components/quote-form.tsx",
-    "line": 60,
+    "line": 61,
     "column": 1004,
     "symbol": "QuoteForm"
   },
@@ -788,7 +836,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Step 2 of 2",
     "filePath": "components/quote-form.tsx",
-    "line": 61,
+    "line": 62,
     "column": 219,
     "symbol": "QuoteForm"
   },
@@ -796,7 +844,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Tell us about your yard.",
     "filePath": "components/quote-form.tsx",
-    "line": 61,
+    "line": 62,
     "column": 288,
     "symbol": "QuoteForm"
   },
@@ -804,7 +852,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Change ZIP",
     "filePath": "components/quote-form.tsx",
-    "line": 61,
+    "line": 62,
     "column": 416,
     "symbol": "QuoteForm"
   },
@@ -812,23 +860,23 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "I agree that K9 Kleanup may contact me by text or phone about this quote.",
     "filePath": "components/quote-form.tsx",
-    "line": 61,
-    "column": 1765,
+    "line": 62,
+    "column": 1869,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
     "value": "Building quote…",
     "filePath": "components/quote-form.tsx",
-    "line": 61,
-    "column": 2146,
+    "line": 62,
+    "column": 2250,
     "symbol": "QuoteForm"
   },
   {
     "type": "text",
     "value": "void; items: Array",
     "filePath": "components/quote-form.tsx",
-    "line": 65,
+    "line": 66,
     "column": 127,
     "symbol": "Select"
   },
