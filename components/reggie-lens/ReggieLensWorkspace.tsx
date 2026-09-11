@@ -2841,17 +2841,32 @@ function applyStructurePreview(snapshot: PreviewSnapshot, structure: ReggieLensS
   container.style.setProperty("gap", structure.preview.gap, "important");
   container.style.setProperty("align-items", structure.preview.alignItems, "important");
   container.style.setProperty("box-sizing", "border-box", "important");
+  if (isMobile) {
+    // A site theme may give a selected section or one of its grid children a
+    // desktop minimum width. Keep the preview bounded to the device canvas;
+    // the snapshot restore path removes these preview-only styles.
+    container.style.setProperty("min-width", "0", "important");
+    container.style.setProperty("max-width", "100%", "important");
+    container.style.setProperty("overflow-x", "clip", "important");
+  }
   container.style.setProperty("outline", "3px solid rgba(167, 174, 46, 0.92)", "important");
   container.style.setProperty("outline-offset", "6px", "important");
   container.style.setProperty("transition", "grid-template-columns 180ms ease, gap 180ms ease, padding 180ms ease", "important");
   if (structure.preview.containerMaxWidth) {
     const leftInset = Math.max(24, Math.round(container.getBoundingClientRect().left + 24));
     container.style.setProperty("width", isMobile ? "100%" : `min(${structure.preview.containerMaxWidth}, calc(100vw - ${leftInset}px))`, "important");
-    container.style.setProperty("max-width", structure.preview.containerMaxWidth, "important");
+    container.style.setProperty("max-width", isMobile ? "100%" : structure.preview.containerMaxWidth, "important");
   }
   if (structure.preview.padding) container.style.setProperty("padding", structure.preview.padding, "important");
 
   const children = snapshot.layoutChildren.filter((child) => child.element.isConnected).map((child) => child.element);
+  if (isMobile) {
+    for (const descendant of container.querySelectorAll<HTMLElement>("*")) {
+      descendant.style.setProperty("min-width", "0", "important");
+      descendant.style.setProperty("max-width", "100%", "important");
+      descendant.style.setProperty("box-sizing", "border-box", "important");
+    }
+  }
   for (const child of children) {
     child.style.setProperty("min-width", "0", "important");
     child.style.setProperty("max-width", "100%", "important");
