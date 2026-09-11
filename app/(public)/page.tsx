@@ -32,7 +32,7 @@ export default async function Home() {
                 clean.
               </span>
             </h1>
-            <p className="mt-7 max-w-sm text-lg leading-relaxed">
+            <p className="mt-7 max-w-sm text-lg leading-[1.55]">
               You handle the belly rubs. We’ll handle the backyard cleanup.
               Reliable pet waste removal from a local, veteran-owned crew.
             </p>
