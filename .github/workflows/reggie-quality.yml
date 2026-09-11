@@ -49,7 +49,12 @@ jobs:
           git worktree add --detach "$baseline_dir" "$base_commit"
           (
             cd "$baseline_dir"
-            npm ci
+            # A trusted base can predate a package-lock repair.  Its lint
+            # comparison still needs to run so that the candidate can prove
+            # the repair; use a temporary dependency resolution here only.
+            # The candidate itself remains protected by the strict npm ci
+            # step above.
+            npm install --ignore-scripts --no-save --no-package-lock
             node "$GITHUB_WORKSPACE/scripts/reggie-lint-compat.mjs" --defer-errors --output "$RUNNER_TEMP/reggie-lint-baseline.json"
           )
           node scripts/reggie-lint-compat.mjs --defer-errors --output "$RUNNER_TEMP/reggie-lint-candidate.json"
