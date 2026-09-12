@@ -31,37 +31,18 @@ const overrides = ["set-state-in-effect", "immutability"]
   .filter((rule) => Object.prototype.hasOwnProperty.call(availableRules, rule))
   .map((rule) => `react-hooks/${rule}:off`);
 const eslintOutput = `${artifact}.eslint.json`;
-const usesOxlint = /(?:^|\s)oxlint(?:\s|$)/.test(lintScript);
-const args = usesOxlint
-  ? ["run", "lint", "--", "--format", "json"]
-  : ["run", "lint", "--", "--format", "json", "--output-file", eslintOutput,
-    "--ignore-pattern", "public/_assets/**", "--ignore-pattern", ".reggie/backups/**"];
-if (!usesOxlint) for (const rule of overrides) args.push("--rule", rule);
+const args = ["run", "lint", "--", "--format", "json", "--output-file", eslintOutput,
+  "--ignore-pattern", "public/_assets/**", "--ignore-pattern", ".reggie/backups/**"];
+for (const rule of overrides) args.push("--rule", rule);
 const execution = spawnSync(process.platform === "win32" ? "npm.cmd" : "npm", args, {
   cwd: root, encoding: "utf8", shell: process.platform === "win32", stdio: ["ignore", "pipe", "pipe"],
 });
 let reports = [];
-let oxlintDiagnostics = [];
 if (fs.existsSync(eslintOutput)) {
   reports = JSON.parse(fs.readFileSync(eslintOutput, "utf8"));
   fs.rmSync(eslintOutput, { force: true });
-} else if (usesOxlint) {
-  const output = String(execution.stdout || "").trim();
-  const jsonStart = output.indexOf("{");
-  if (jsonStart >= 0) {
-    const payload = JSON.parse(output.slice(jsonStart));
-    oxlintDiagnostics = Array.isArray(payload.diagnostics) ? payload.diagnostics : [];
-  }
 }
-const diagnostics = usesOxlint
-  ? oxlintDiagnostics
-    .filter((diagnostic) => String(diagnostic.severity).toLowerCase() === "error")
-    .map((diagnostic) => ({
-      path: String(diagnostic.filename || "").replaceAll("\\", "/"),
-      ruleId: String(diagnostic.code || "oxlint/unknown"),
-      message: String(diagnostic.message || "").replace(/\s+/g, " ").trim(),
-    }))
-  : reports.flatMap((report) => (report.messages || [])
+const diagnostics = reports.flatMap((report) => (report.messages || [])
   .filter((message) => Number(message.severity) === 2)
   .map((message) => ({
     path: path.relative(root, path.resolve(report.filePath || "")).split(path.sep).join("/").replace(/^\.\//, ""),
