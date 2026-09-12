@@ -39,7 +39,7 @@ export function SiteNav() {
   ];
   return (
     <header className="border-b border-white/15 bg-black text-white">
-      <div className="site-container flex min-h-28 items-center justify-between gap-4">
+      <div className="site-container flex min-h-28 flex-wrap items-center justify-between gap-4">
         <Brand />
         <Link
           href="/contact"
