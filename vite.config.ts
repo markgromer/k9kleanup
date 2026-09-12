@@ -8,14 +8,6 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
 
 const localBindingConfig = {
   main: 'vinext/server/fetch-handler',
-  d1_databases: [
-    { binding: 'DB', database_name: 'k9kleanup-site', database_id: 'a1129aec-c5c5-431e-bec2-61f5cdfdb5b2' },
-    { binding: 'INTEGRATIONS_DB', database_name: 'reggie-markgromer-k9kleanup-admin', database_id: '54bf1c2c-0433-4f53-909d-c179f0a3aaff' },
-  ],
-  r2_buckets: [
-    { binding: 'FILES', bucket_name: 'k9kleanup-files' },
-    { binding: 'REGGIE_MEDIA', bucket_name: 'reggie-markgromer-k9kleanup-media' },
-  ],
 };
 
 export default defineConfig(async () => {
