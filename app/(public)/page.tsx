@@ -47,7 +47,7 @@ export default async function Home() {
               sizes="(max-width: 1024px) 100vw, 52vw"
               priority
               unoptimized
-              className="h-full w-full object-contain object-center"
+              className="h-full w-full object-contain object-left"
             />
             <span className="absolute right-5 bottom-5 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-semibold shadow-sm">
               Local crew. Thorough cleanup.
