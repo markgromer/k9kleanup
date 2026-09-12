@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "version": "0.5.49",
+  "version": "0.5.51",
   "template": "next-app-router",
   "installedAt": "2026-09-11T17:02:33.487Z",
   "repo": {
@@ -53,8 +53,8 @@
       "templateHash": "sha256-e2189f2624fd748dd3904420ebc8d1e8018b0cf2a2b66be1d036c4cf9efb2f06"
     },
     "scripts/reggie-doctor.mjs": {
-      "installedHash": "sha256-8056f2359c5ac0e8f29037db87a6b872f1c7f4e4f5d06392f459ab46ca95b4fe",
-      "templateHash": "sha256-8056f2359c5ac0e8f29037db87a6b872f1c7f4e4f5d06392f459ab46ca95b4fe"
+      "installedHash": "sha256-6cf7ff6eebdc365681a8558441443212a051d8dcad2e438a09c5633fe25ef9ab",
+      "templateHash": "sha256-6cf7ff6eebdc365681a8558441443212a051d8dcad2e438a09c5633fe25ef9ab"
     },
     "scripts/reggie-full-qa.mjs": {
       "installedHash": "sha256-8411eb8cc106d526619a425e424d02d0e7e327b19b7fd2d70e48cad665295ace",
@@ -69,12 +69,12 @@
       "templateHash": "sha256-1c7d0f1e35fada2d7d9ce9be9a8e9a6423585408c48e6cf00ce1801e19003964"
     },
     "scripts/reggie-lint-baseline.mjs": {
-      "installedHash": "sha256-a1da669c0630d9de06dbde0b6807f8b74add14a26402a8d14ee2f7923afdc449",
-      "templateHash": "sha256-a1da669c0630d9de06dbde0b6807f8b74add14a26402a8d14ee2f7923afdc449"
+      "installedHash": "sha256-50e71799845c8ac27b05f04bf473c96cd9ab3356cdf8c3792b7c32bac07e0936",
+      "templateHash": "sha256-50e71799845c8ac27b05f04bf473c96cd9ab3356cdf8c3792b7c32bac07e0936"
     },
     "scripts/reggie-lint-compat.mjs": {
-      "installedHash": "sha256-df98bec02e9e5e922971775f5b90c51fcedba4d843f7c61a14fbf009a7293583",
-      "templateHash": "sha256-df98bec02e9e5e922971775f5b90c51fcedba4d843f7c61a14fbf009a7293583"
+      "installedHash": "sha256-90a1d8b408f0f22a390f17bef7ac02acc0bf6a69f6cc47b00d50369532b7fe67",
+      "templateHash": "sha256-90a1d8b408f0f22a390f17bef7ac02acc0bf6a69f6cc47b00d50369532b7fe67"
     },
     "scripts/reggie-page-registry-qa.mjs": {
       "installedHash": "sha256-3d61e0d35f8f2a9610635ef01598028be0a0a7e3fcef0cf4c35d2fecd29cc12c",
@@ -89,8 +89,8 @@
       "templateHash": "sha256-0437d3878e108e06ccf4d1f353bd6f35d322406e5d37cf5715608aed8c907fce"
     },
     "scripts/reggie-source-map.mjs": {
-      "installedHash": "sha256-826d85efa6e539815fa47df467edd13fa77f528684d9ea326b67c1f888163df5",
-      "templateHash": "sha256-826d85efa6e539815fa47df467edd13fa77f528684d9ea326b67c1f888163df5"
+      "installedHash": "sha256-50c148be6cb0d1a7d9544f4c6534c5e565306d4b9cec70cf2d92a4535f7f7d87",
+      "templateHash": "sha256-50c148be6cb0d1a7d9544f4c6534c5e565306d4b9cec70cf2d92a4535f7f7d87"
     },
     "scripts/reggie-static-server.mjs": {
       "installedHash": "sha256-fc8540f3e7a17dd69e1994589e03d37d9cd12dc299392b2399ad6ed94bef36d7",
@@ -345,8 +345,8 @@
       "templateHash": "sha256-866185b47e0c79620226f0370352099cce490978bb73303e4663b53066e0ca65"
     },
     "app/api/admin/reggie-update/route.ts": {
-      "installedHash": "sha256-d469828b4c1d0638d940035965ace1bd8db07d28876abad013429c7e02179f37",
-      "templateHash": "sha256-d469828b4c1d0638d940035965ace1bd8db07d28876abad013429c7e02179f37"
+      "installedHash": "sha256-441d6dcb4b21817acbc74f2ece4dba28fa8eb461cde10628bb687af07ea7f2cb",
+      "templateHash": "sha256-441d6dcb4b21817acbc74f2ece4dba28fa8eb461cde10628bb687af07ea7f2cb"
     },
     "app/api/admin/reviews/route.ts": {
       "installedHash": "sha256-889188698a76fe268f01556b3dc632c653d5703b5f6a665087dd543b3ce99c3e",
@@ -629,15 +629,15 @@
       "templateHash": "sha256-904abd2571a7c5fa75de8de75d26554ad1303031bc66e9e5330709db848dfc8b"
     },
     "generated/reggie-deployment-identity.ts": {
-      "installedHash": "sha256-c4f7b1907ca3ce95a595faf95636a1819b13566378a0336a3cae7ba5271f23c6",
-      "templateHash": "sha256-c4f7b1907ca3ce95a595faf95636a1819b13566378a0336a3cae7ba5271f23c6"
+      "installedHash": "sha256-b5c818b7dbcd921dd8ee6c82ee61749049c562883157ba2d2aad20df603fab09",
+      "templateHash": "sha256-b5c818b7dbcd921dd8ee6c82ee61749049c562883157ba2d2aad20df603fab09"
     },
     "generated/reggie-page-registry.ts": {
       "installedHash": "sha256-f75312a376e23d5a89c9e9610906ac1d4c4abe4a1968bec7a6c528a43eb8383a",
       "templateHash": "sha256-a69b3a1364e0a67c357db371540eb69b01fbb2a7ecc134e1e30213b2cb8eaac0"
     },
     "generated/reggie-source-map.ts": {
-      "installedHash": "sha256-003ff0c44b1eeeda545dec94e3ab919b845515c41cbe728c481ef03f54758581",
+      "installedHash": "sha256-d368329416a1979a7b9dd584573dbb11c231fd2b6ad0fea66ba0096a0db4d797",
       "templateHash": "sha256-96aca074eaa235002711d6cd5a24960d88918923008d9cb553029eea403d9a9a"
     },
     "lib/admin-api-client.ts": {
@@ -795,6 +795,11 @@
     "lib/reggie-mission-state.mjs": {
       "installedHash": "sha256-0dbcd7705590d6b9d1b67f658d270901bf549144dfa1e507315fccf7830300b7",
       "templateHash": "sha256-0dbcd7705590d6b9d1b67f658d270901bf549144dfa1e507315fccf7830300b7"
+    },
+    "scripts/reggie-lint-managed-debt.mjs": {
+      "installedHash": "sha256-841e4049c184146bc37b5c13d66a5945b0412289f58cc239cfc7526317f9d941",
+      "templateHash": "sha256-841e4049c184146bc37b5c13d66a5945b0412289f58cc239cfc7526317f9d941"
     }
-  }
+  },
+  "upgradedAt": "2026-09-12T18:18:36.495Z"
 }

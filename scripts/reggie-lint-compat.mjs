@@ -31,7 +31,7 @@ const overrides = ["set-state-in-effect", "immutability"]
   .filter((rule) => Object.prototype.hasOwnProperty.call(availableRules, rule))
   .map((rule) => `react-hooks/${rule}:off`);
 const eslintOutput = `${artifact}.eslint.json`;
-const usesOxlint = /(?:^|\s)oxlint(?:\s|$)/.test(lintScript);
+const usesOxlint = /(?:^|[\s/\\])oxlint(?:\.(?:[cm]?js))?(?=\s|$)/.test(lintScript);
 const args = usesOxlint
   ? ["run", "lint", "--", "--format", "json"]
   : ["run", "lint", "--", "--format", "json", "--output-file", eslintOutput,
@@ -42,25 +42,42 @@ const execution = spawnSync(process.platform === "win32" ? "npm.cmd" : "npm", ar
 });
 let reports = [];
 let oxlintDiagnostics = [];
-if (fs.existsSync(eslintOutput)) {
+let eslintReportParsed = false;
+let oxlintReportParsed = false;
+if (!usesOxlint && fs.existsSync(eslintOutput)) {
   reports = JSON.parse(fs.readFileSync(eslintOutput, "utf8"));
+  eslintReportParsed = true;
   fs.rmSync(eslintOutput, { force: true });
-} else if (usesOxlint) {
+}
+if (usesOxlint) {
   const output = String(execution.stdout || "").trim();
   const jsonStart = output.indexOf("{");
   if (jsonStart >= 0) {
-    const payload = JSON.parse(output.slice(jsonStart));
-    oxlintDiagnostics = Array.isArray(payload.diagnostics) ? payload.diagnostics : [];
+    try {
+      const payload = JSON.parse(output.slice(jsonStart));
+      if (Array.isArray(payload.diagnostics)) {
+        oxlintDiagnostics = payload.diagnostics;
+        oxlintReportParsed = true;
+      }
+    } catch {
+      // Leave diagnostics empty: malformed output remains a hard failure.
+    }
   }
 }
 const diagnostics = usesOxlint
   ? oxlintDiagnostics
     .filter((diagnostic) => String(diagnostic.severity).toLowerCase() === "error")
-    .map((diagnostic) => ({
-      path: String(diagnostic.filename || "").replaceAll("\\", "/"),
-      ruleId: String(diagnostic.code || "oxlint/unknown"),
-      message: String(diagnostic.message || "").replace(/\s+/g, " ").trim(),
-    }))
+    .map((diagnostic) => {
+      const filename = String(diagnostic.filename || "");
+      const span = diagnostic.labels?.[0]?.span || {};
+      return {
+        path: path.relative(root, path.resolve(root, filename)).split(path.sep).join("/").replace(/^\.\//, ""),
+        ruleId: String(diagnostic.code || "oxlint/unknown"),
+        message: String(diagnostic.message || "").replace(/\s+/g, " ").trim(),
+        line: Number(span.line || 0),
+        column: Number(span.column || 0),
+      };
+    })
   : reports.flatMap((report) => (report.messages || [])
   .filter((message) => Number(message.severity) === 2)
   .map((message) => ({
@@ -69,9 +86,10 @@ const diagnostics = usesOxlint
     message: String(message.message || "").replace(/\s+/g, " ").trim(),
   })));
 const result = { ok: execution.status === 0, skipped: false, exitCode: execution.status ?? 1, overrides, diagnostics,
+  lintReportParsed: usesOxlint ? oxlintReportParsed : eslintReportParsed,
   stderr: [execution.stderr, diagnostics.length === 0 ? execution.stdout : ""].filter(Boolean).join("\n").trim() };
 fs.writeFileSync(artifact, `${JSON.stringify(result, null, 2)}\n`);
 console.log(JSON.stringify(result));
 // Existing lint errors are evaluated against the exact base. A configuration
 // failure produces no diagnostics and must fail immediately.
-if (!result.ok && (!deferErrors || result.exitCode >= 2 || diagnostics.length === 0)) process.exit(1);
+if (!result.lintReportParsed || (!result.ok && (!deferErrors || result.exitCode >= 2 || diagnostics.length === 0))) process.exit(1);

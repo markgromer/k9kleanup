@@ -49,12 +49,7 @@ jobs:
           git worktree add --detach "$baseline_dir" "$base_commit"
           (
             cd "$baseline_dir"
-            # A trusted base can predate a package-lock repair.  Its lint
-            # comparison still needs to run so that the candidate can prove
-            # the repair; use a temporary dependency resolution here only.
-            # The candidate itself remains protected by the strict npm ci
-            # step above.
-            npm install --ignore-scripts --no-save --no-package-lock
+            npm ci
             node "$GITHUB_WORKSPACE/scripts/reggie-lint-compat.mjs" --defer-errors --output "$RUNNER_TEMP/reggie-lint-baseline.json"
           )
           node scripts/reggie-lint-compat.mjs --defer-errors --output "$RUNNER_TEMP/reggie-lint-candidate.json"
@@ -83,7 +78,6 @@ jobs:
           set -euo pipefail
           npm run reggie:doctor
           npm run reggie:workflow-qa
-          npm run cf:typegen
           npm run build
 
       - name: Select compatible browser
@@ -115,7 +109,7 @@ jobs:
             # Vinext's generated Worker imports cloudflare: modules and must run in
             # workerd. Pin the QA runtime centrally so an older site lockfile cannot
             # lag behind the site's compatibility date.
-            npx --yes wrangler@4.121.0 dev --config wrangler.jsonc --port 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
+            npx --yes wrangler@4.121.0 dev --port 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
           elif npm run | grep -qE '^  start'; then
             npm run start -- --port 3101 > "$RUNNER_TEMP/reggie-site.log" 2>&1 &
           else
