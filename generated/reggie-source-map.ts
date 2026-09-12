@@ -12,7 +12,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Why we do what we do",
     "filePath": "app/(public)/about/page.tsx",
-    "line": 75,
+    "line": 76,
     "column": 33,
     "symbol": "About"
   },
@@ -108,7 +108,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Free quote. No long-term contracts.",
     "filePath": "app/(public)/page.tsx",
-    "line": 42,
+    "line": 40,
     "column": 40,
     "symbol": "Home"
   },
@@ -116,7 +116,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "A little help goes a long way",
     "filePath": "app/(public)/page.tsx",
-    "line": 78,
+    "line": 72,
     "column": 35,
     "symbol": "Home"
   },
@@ -124,7 +124,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Two brothers. One simple idea.",
     "filePath": "app/(public)/page.tsx",
-    "line": 128,
+    "line": 123,
     "column": 35,
     "symbol": "Home"
   },
@@ -132,7 +132,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Easy from the first hello",
     "filePath": "app/(public)/page.tsx",
-    "line": 151,
+    "line": 146,
     "column": 31,
     "symbol": "Home"
   },
@@ -140,7 +140,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Rooted right here",
     "filePath": "app/(public)/page.tsx",
-    "line": 191,
+    "line": 186,
     "column": 51,
     "symbol": "Home"
   },
@@ -316,7 +316,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "The details matter",
     "filePath": "app/(public)/services/page.tsx",
-    "line": 52,
+    "line": 57,
     "column": 35,
     "symbol": "Services"
   },
@@ -324,7 +324,7 @@ export const reggieSourceMap = [
     "type": "text",
     "value": "Care comes standard.",
     "filePath": "app/(public)/services/page.tsx",
-    "line": 53,
+    "line": 58,
     "column": 50,
     "symbol": "Services"
   },

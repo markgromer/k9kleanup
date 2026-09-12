@@ -7,14 +7,12 @@ import {
   HeartHandshake,
   CalendarDays,
 } from 'lucide-react';
-import { getSiteSettings } from '@/db/site-data';
 import { QuoteLink, ClosingCTA } from '@/components/site-sections';
 import { services } from '@/lib/site-content';
 
 export const metadata = metadataFor('/');
 
 export default async function Home() {
-  const settings = await getSiteSettings();
   return (
     <>
       <section className="site-container py-8 md:py-12">
@@ -43,17 +41,13 @@ export default async function Home() {
           </div>
           <div className="relative min-h-[390px] lg:min-h-full">
             <Image
-              src={
-                settings.heroImageKey
-                  ? `/media/${encodeURIComponent(settings.heroImageKey)}`
-                  : '/images/yard-dog.jpg'
-              }
-              alt="A golden retriever enjoying a green lawn"
+              src="/api/media/d69df6c5-b728-4702-ad8e-a946188d33d8"
+              alt="Image2"
               fill
               sizes="(max-width: 1024px) 100vw, 52vw"
               priority
-              unoptimized={Boolean(settings.heroImageKey)}
-              className="photo"
+              unoptimized
+              className="h-full w-full object-contain object-center"
             />
             <span className="absolute right-5 bottom-5 rounded-full bg-accent text-accent-foreground px-5 py-3 text-sm font-semibold shadow-sm">
               Local crew. Thorough cleanup.
@@ -117,11 +111,12 @@ export default async function Home() {
         <div className="site-container content-grid section-space items-center">
           <div className="relative aspect-[5/4] overflow-hidden rounded-t-[9rem]">
             <Image
-              src="/images/dog-walk.jpg"
-              alt="A person spending time outdoors with their dog"
+              src="/api/media/b163cbfd-f10d-49cf-bdab-63f03bccbfb7"
+              alt="Image4"
+              unoptimized
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="photo"
+              className="photo object-center"
             />
           </div>
           <div>
