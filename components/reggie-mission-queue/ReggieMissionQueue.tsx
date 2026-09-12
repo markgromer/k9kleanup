@@ -806,7 +806,7 @@ function preloadScreenshot(url: string) {
 }
 
 function normalizeLandingPagePath(value: string) {
-  const raw = value.trim().replace(/\\/g, "/").replace(/[?#].*$/, "");
+  const raw = value.trim().replace(/[?#].*$/, "");
   if (!raw) return "";
   const path = `/${raw.replace(/^\/+/, "").replace(/\/+$/, "")}`;
   if (path === "/" || path.includes("..") || !/^\/[a-z0-9][a-z0-9/_-]*$/i.test(path)) return "";
