@@ -14,6 +14,19 @@ const artifact = path.resolve(outputIndex >= 0 ? process.argv[outputIndex + 1] :
 const deferErrors = process.argv.includes("--defer-errors");
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
 const lintScript = String(packageJson.scripts?.lint || "").trim();
+const oxlintExecutablePattern = /(?:^|[\s/\\\x22\x27])oxlint(?:\.(?:[cm]?js))?(?=[\s\x22\x27]|$)/;
+const lintAliasPattern = /(?:^|[;&|]\s*|\s)(?:npm(?:\.cmd)?\s+(?:run(?:-script)?\s+)|pnpm(?:\.cmd)?\s+(?:run\s+)?|yarn(?:\.cmd)?\s+(?:run\s+)?)(?:"([^"]+)"|'([^']+)'|([A-Za-z0-9:_-]+))/g;
+const usesOxlintLint = (scriptName = "lint", visited = new Set()) => {
+  if (visited.has(scriptName)) return false;
+  visited.add(scriptName);
+  const script = String(packageJson.scripts?.[scriptName] || "").trim();
+  if (oxlintExecutablePattern.test(script)) return true;
+  for (const match of script.matchAll(lintAliasPattern)) {
+    const alias = match[1] || match[2] || match[3];
+    if (alias && usesOxlintLint(alias, visited)) return true;
+  }
+  return false;
+};
 fs.mkdirSync(path.dirname(artifact), { recursive: true });
 
 if (!lintScript || /^next\s+lint(?:\s|$)/.test(lintScript)) {
@@ -31,7 +44,7 @@ const overrides = ["set-state-in-effect", "immutability"]
   .filter((rule) => Object.prototype.hasOwnProperty.call(availableRules, rule))
   .map((rule) => `react-hooks/${rule}:off`);
 const eslintOutput = `${artifact}.eslint.json`;
-const usesOxlint = /(?:^|[\s/\\])oxlint(?:\.(?:[cm]?js))?(?=\s|$)/.test(lintScript);
+const usesOxlint = usesOxlintLint();
 const args = usesOxlint
   ? ["run", "lint", "--", "--format", "json"]
   : ["run", "lint", "--", "--format", "json", "--output-file", eslintOutput,
