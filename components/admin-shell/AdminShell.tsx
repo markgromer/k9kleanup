@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useLayoutEffect, useState, type FormEvent, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useState, type FormEvent, type ReactNode } from "react";
 
 import { adminApiUrl } from "@/lib/admin-api-client";
 import { clearSavedAdminPassword, createAdminSession, readSavedAdminPassword, requestDashboardAccessEmail, restoreAdminSession, setDashboardPasswordFromEmail } from "@/lib/admin-auth-client";
@@ -109,12 +109,6 @@ const singleLinks = [
 function isCurrent(pathname: string | null, href: string) {
   if (!pathname) return false;
   return href === "/admin" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
-}
-
-function navigateWithFullLoad(event: MouseEvent<HTMLAnchorElement>) {
-  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  window.location.assign(event.currentTarget.href);
 }
 
 export function AdminShell({ children }: { children: ReactNode }) {
@@ -297,16 +291,16 @@ export function AdminShell({ children }: { children: ReactNode }) {
       <div className={styles.shell}>
         <aside id="poopsites-dashboard-navigation" className={`${styles.sidebar} ${mobileOpen ? styles.sidebarOpen : ""}`}>
           <div className={styles.brandBlock}>
-            <a href="/admin" className={styles.brandMark} aria-label={`${dashboardSiteProfile.name} dashboard`} onClick={(event) => { setMobileOpen(false); navigateWithFullLoad(event); }}>
+            <Link href="/admin" className={styles.brandMark} aria-label={`${dashboardSiteProfile.name} dashboard`} onClick={() => setMobileOpen(false)}>
               <span className={styles.brandIcon}>R</span>
               <span><strong>PoopSites</strong><small>{dashboardSiteProfile.name}</small></span>
-            </a>
+            </Link>
             <button className={styles.closeDrawer} type="button" onClick={() => setMobileOpen(false)} aria-label="Close navigation"><X size={20} /></button>
           </div>
           <nav className={styles.nav} aria-label="Dashboard">
-            <a href="/admin" className={`${styles.primaryLink} ${pathname === "/admin" ? styles.active : ""}`} aria-current={pathname === "/admin" ? "page" : undefined} onClick={(event) => { setMobileOpen(false); navigateWithFullLoad(event); }}>
+            <Link href="/admin" className={`${styles.primaryLink} ${pathname === "/admin" ? styles.active : ""}`} aria-current={pathname === "/admin" ? "page" : undefined} onClick={() => setMobileOpen(false)}>
               <LayoutDashboard size={18} aria-hidden="true" /><span>Dashboard</span>
-            </a>
+            </Link>
             {groups.map((group) => {
               const groupActive = group.items.some((item) => isCurrent(pathname, item.href));
               const Icon = group.icon;
@@ -316,7 +310,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
                   <div className={styles.groupLinks}>
                     {group.items.map((item) => {
                       const active = isCurrent(pathname, item.href);
-                      return <a key={item.href} href={item.href} className={`${styles.navLink} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined} onClick={(event) => { setMobileOpen(false); navigateWithFullLoad(event); }}>{item.label}</a>;
+                      return <Link key={item.href} href={item.href} className={`${styles.navLink} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined} onClick={() => setMobileOpen(false)}>{item.label}</Link>;
                     })}
                   </div>
                 </details>
@@ -325,11 +319,11 @@ export function AdminShell({ children }: { children: ReactNode }) {
             {singleLinks.map((item) => {
               const active = isCurrent(pathname, item.href);
               const Icon = item.icon;
-              return <a key={item.href} href={item.href} className={`${styles.primaryLink} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined} onClick={(event) => { setMobileOpen(false); navigateWithFullLoad(event); }}><Icon size={18} aria-hidden="true" /><span>{item.label}</span></a>;
+              return <Link key={item.href} href={item.href} className={`${styles.primaryLink} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined} onClick={() => setMobileOpen(false)}><Icon size={18} aria-hidden="true" /><span>{item.label}</span></Link>;
             })}
           </nav>
           <div className={styles.sidebarFooter}>
-            <div className={styles.helpBlock}><strong>Questions or website help?</strong><span>Ask Reggie for instructions, troubleshooting, or a website change.</span><a href="/admin/reggie" onClick={(event) => { setMobileOpen(false); navigateWithFullLoad(event); }}>Open Help</a></div>
+            <div className={styles.helpBlock}><strong>Questions or website help?</strong><span>Ask Reggie for instructions, troubleshooting, or a website change.</span><Link href="/admin/reggie" onClick={() => setMobileOpen(false)}>Open Help</Link></div>
             <button className={styles.signOut} type="button" onClick={signOut}>Sign out</button>
           </div>
         </aside>

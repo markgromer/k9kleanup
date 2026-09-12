@@ -22,6 +22,7 @@ const requiredFiles = [
   "scripts/reggie-lens-browser-qa.mjs",
   "scripts/reggie-lens-retry.mjs",
   "scripts/reggie-lint-baseline.mjs",
+  "scripts/reggie-lint-managed-debt.mjs",
   "scripts/reggie-lint-compat.mjs",
   "scripts/reggie-page-registry.mjs",
   "scripts/reggie-page-registry-qa.mjs",
