@@ -31,7 +31,7 @@ const overrides = ["set-state-in-effect", "immutability"]
   .filter((rule) => Object.prototype.hasOwnProperty.call(availableRules, rule))
   .map((rule) => `react-hooks/${rule}:off`);
 const eslintOutput = `${artifact}.eslint.json`;
-const usesOxlint = /(?:^|\s)oxlint(?:\s|$)/.test(lintScript);
+const usesOxlint = /(?:^|[\s/\\])oxlint(?:\.(?:[cm]?js))?(?=\s|$)/.test(lintScript);
 const args = usesOxlint
   ? ["run", "lint", "--", "--format", "json"]
   : ["run", "lint", "--", "--format", "json", "--output-file", eslintOutput,
@@ -49,8 +49,12 @@ if (fs.existsSync(eslintOutput)) {
   const output = String(execution.stdout || "").trim();
   const jsonStart = output.indexOf("{");
   if (jsonStart >= 0) {
-    const payload = JSON.parse(output.slice(jsonStart));
-    oxlintDiagnostics = Array.isArray(payload.diagnostics) ? payload.diagnostics : [];
+    try {
+      const payload = JSON.parse(output.slice(jsonStart));
+      oxlintDiagnostics = Array.isArray(payload.diagnostics) ? payload.diagnostics : [];
+    } catch {
+      // Leave diagnostics empty: malformed output remains a hard failure.
+    }
   }
 }
 const diagnostics = usesOxlint

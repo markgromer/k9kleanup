@@ -31,7 +31,8 @@ const blockers = [];
 for (const [key, entry] of candidateSet) {
   const baselineCount = baselineSet.get(key)?.count || 0;
   if (entry.count > baselineCount) blockers.push({ ...entry.diagnostic, count: entry.count - baselineCount, reason: "new_or_increased_error" });
-  else admitted.push({ ...entry.diagnostic, count: entry.count, reason: changedFiles.has(entry.diagnostic.path) ? "unchanged_or_reduced_changed_file_baseline" : "unchanged_customer_baseline" });
+  else if (changedFiles.has(entry.diagnostic.path) && entry.count >= baselineCount) blockers.push({ ...entry.diagnostic, count: entry.count, reason: "baseline_error_in_reggie_modified_file" });
+  else admitted.push({ ...entry.diagnostic, count: entry.count, reason: changedFiles.has(entry.diagnostic.path) ? "exact_error_reduced" : "unchanged_customer_baseline" });
 }
 const serialize = (set) => [...set.values()].map(({ diagnostic, count }) => ({ ...diagnostic, count }));
 const result = { ok: blockers.length === 0, baseline: serialize(baselineSet), candidate: serialize(candidateSet), admitted, blockers };
