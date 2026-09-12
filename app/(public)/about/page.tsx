@@ -64,11 +64,12 @@ export default function About() {
       <section className="site-container content-grid section-space items-center">
         <div className="relative aspect-square overflow-hidden rounded-2xl">
           <Image
-            src="/images/puppy-grass.jpg"
-            alt="A playful puppy enjoying time in the grass"
+            src="/api/media/48e84b33-ea85-4add-b7bd-b93dd4da0058"
+            alt="Image1"
+            unoptimized
             fill
             sizes="(max-width:1024px) 100vw, 50vw"
-            className="photo"
+            className="photo object-center"
           />
         </div>
         <div>

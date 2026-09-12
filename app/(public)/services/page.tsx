@@ -22,11 +22,16 @@ export default function Services() {
             >
               <div className="relative min-h-80">
                 <Image
-                  src={s.image}
-                  alt={s.alt}
+                  src={
+                    s.slug === 'recurring-cleanup'
+                      ? '/api/media/dfcb02a6-1730-4ff1-8578-9c300b207b29'
+                      : s.image
+                  }
+                  alt={s.slug === 'recurring-cleanup' ? 'Image0' : s.alt}
+                  unoptimized={s.slug === 'recurring-cleanup'}
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"
-                  className="photo"
+                  className="photo object-center"
                 />
               </div>
               <div className="p-8 md:p-12">
