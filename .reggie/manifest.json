@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "version": "0.5.52",
+  "version": "0.5.54",
   "template": "next-app-router",
   "installedAt": "2026-09-11T17:02:33.487Z",
   "repo": {
@@ -21,8 +21,8 @@
       "templateHash": "sha256-a72d89be01652f8163a37a4e55cf189b2525478da9adc2aa264196f2823ed652"
     },
     ".github/workflows/reggie-quality.yml": {
-      "installedHash": "sha256-d2cf5c5f4e55cda24ef0ab7ab0e8e5b2c751c099f491ba003d2cc3c455a3b8b9",
-      "templateHash": "sha256-d2cf5c5f4e55cda24ef0ab7ab0e8e5b2c751c099f491ba003d2cc3c455a3b8b9"
+      "installedHash": "sha256-62d1bbba5812b685fb9130874b1295b7e37c6a115e17b187a5330c408047a1ba",
+      "templateHash": "sha256-62d1bbba5812b685fb9130874b1295b7e37c6a115e17b187a5330c408047a1ba"
     },
     "docs/admin-revision-system.md": {
       "installedHash": "sha256-fd3cae1df247a8812318fea777753b8ee825e80a0b637336c74391ba3a980dfb",
@@ -89,8 +89,8 @@
       "templateHash": "sha256-0437d3878e108e06ccf4d1f353bd6f35d322406e5d37cf5715608aed8c907fce"
     },
     "scripts/reggie-source-map.mjs": {
-      "installedHash": "sha256-6b2ccde85e4add4db571966a59fcb4e158099c910c44dfe3ef574db8bd5b2f30",
-      "templateHash": "sha256-6b2ccde85e4add4db571966a59fcb4e158099c910c44dfe3ef574db8bd5b2f30"
+      "installedHash": "sha256-791dd56da2274817549087a9fc0488f7c853ff62ca4c451e20fb74f5d0629c4d",
+      "templateHash": "sha256-791dd56da2274817549087a9fc0488f7c853ff62ca4c451e20fb74f5d0629c4d"
     },
     "scripts/reggie-static-server.mjs": {
       "installedHash": "sha256-fc8540f3e7a17dd69e1994589e03d37d9cd12dc299392b2399ad6ed94bef36d7",
@@ -345,8 +345,8 @@
       "templateHash": "sha256-866185b47e0c79620226f0370352099cce490978bb73303e4663b53066e0ca65"
     },
     "app/api/admin/reggie-update/route.ts": {
-      "installedHash": "sha256-38f6043790ee1639ff16b0643bfd34e995250dc5ad3d37f5e032209dc862842c",
-      "templateHash": "sha256-38f6043790ee1639ff16b0643bfd34e995250dc5ad3d37f5e032209dc862842c"
+      "installedHash": "sha256-18cca0cf9859ad49e409de685fd8c59403dff642b660eb90005d75709442ad01",
+      "templateHash": "sha256-18cca0cf9859ad49e409de685fd8c59403dff642b660eb90005d75709442ad01"
     },
     "app/api/admin/reviews/route.ts": {
       "installedHash": "sha256-889188698a76fe268f01556b3dc632c653d5703b5f6a665087dd543b3ce99c3e",
@@ -629,15 +629,15 @@
       "templateHash": "sha256-904abd2571a7c5fa75de8de75d26554ad1303031bc66e9e5330709db848dfc8b"
     },
     "generated/reggie-deployment-identity.ts": {
-      "installedHash": "sha256-2643c49a2e550b3a693dfe2c6b2fb7ce8158c44bb929b29ba1f461e8cac73f23",
-      "templateHash": "sha256-2643c49a2e550b3a693dfe2c6b2fb7ce8158c44bb929b29ba1f461e8cac73f23"
+      "installedHash": "sha256-57683650665050dcb3a54167cca732f167933dd0b9fdbf269f13898a58eeb22a",
+      "templateHash": "sha256-57683650665050dcb3a54167cca732f167933dd0b9fdbf269f13898a58eeb22a"
     },
     "generated/reggie-page-registry.ts": {
       "installedHash": "sha256-f75312a376e23d5a89c9e9610906ac1d4c4abe4a1968bec7a6c528a43eb8383a",
       "templateHash": "sha256-a69b3a1364e0a67c357db371540eb69b01fbb2a7ecc134e1e30213b2cb8eaac0"
     },
     "generated/reggie-source-map.ts": {
-      "installedHash": "sha256-d368329416a1979a7b9dd584573dbb11c231fd2b6ad0fea66ba0096a0db4d797",
+      "installedHash": "sha256-46f6153cd48e3e98809f1dda475744de7e1975d4d223663023239105a872f9eb",
       "templateHash": "sha256-96aca074eaa235002711d6cd5a24960d88918923008d9cb553029eea403d9a9a"
     },
     "lib/admin-api-client.ts": {
@@ -801,5 +801,5 @@
       "templateHash": "sha256-841e4049c184146bc37b5c13d66a5945b0412289f58cc239cfc7526317f9d941"
     }
   },
-  "upgradedAt": "2026-09-12T19:08:54.592Z"
+  "upgradedAt": "2026-09-13T21:46:28.956Z"
 }
