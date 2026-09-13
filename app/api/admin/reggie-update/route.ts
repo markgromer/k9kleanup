@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkAdminAuth, unauthorizedResponse } from "@/lib/admin-auth";
 import { getReggieConnection } from "@/lib/reggie-connection";
 
-const installedVersion = "0.5.52";
+const installedVersion = "0.5.54";
 
 type ReleasePayload = {
   ok?: boolean;

@@ -63,7 +63,7 @@ function writeDeploymentIdentity() {
     throw new Error(`${supplied.name} must contain the exact 40-character deployment commit SHA.`);
   }
 
-  const identitySource = `// Generated deterministically by the deployment build. Do not hand-edit.\nexport const reggieDeploymentIdentity = {\n  commit: ${JSON.stringify(supplied.value)},\n  installedVersion: "0.5.52",\n  generatedAt: "",\n} as const;\n`;
+  const identitySource = `// Generated deterministically by the deployment build. Do not hand-edit.\nexport const reggieDeploymentIdentity = {\n  commit: ${JSON.stringify(supplied.value)},\n  installedVersion: "0.5.54",\n  generatedAt: "",\n} as const;\n`;
   const identityPaths = [path.join(target, sourceRoot, "generated", "reggie-deployment-identity.ts")];
   if (fs.existsSync(path.join(target, "functions"))) {
     identityPaths.push(path.join(target, "functions", "_generated", "reggie-deployment-identity.ts"));
